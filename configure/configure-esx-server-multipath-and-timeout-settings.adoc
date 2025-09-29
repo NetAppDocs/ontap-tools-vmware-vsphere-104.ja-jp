@@ -1,0 +1,104 @@
+---
+permalink: configure/configure-esx-server-multipath-and-timeout-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP tools for VMware vSphereは、 NetAppストレージ システムで最適に機能する ESXi ホストのマルチパス設定と HBA タイムアウト設定をチェックして設定します。 
+---
+= ESXiホスト設定を構成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ESXi サーバーのマルチパスとタイムアウト設定を構成すると、プライマリ パスに障害が発生した場合にバックアップ ストレージ パスにシームレスに切り替えることができるため、高可用性とデータの整合性が確保されます。
+
+
+
+== ESXi サーバーのマルチパスとタイムアウト設定を構成する
+
+ONTAP Tools for VMware vSphereは、NetAppストレージ システムに最適なESXiホストのマルチパス設定とHBAタイムアウト設定を確認して設定します。
+
+*このタスクについて*
+
+構成とシステム負荷によっては、このプロセスに長い時間がかかる場合があります。タスクの進捗状況は[Recent Tasks]パネルに表示されます。
+
+.手順
+. VMware vSphere Web クライアントのホームページから、*ホストとクラスタ*を選択します。
+. ホストを右クリックし、* NetApp ONTAPツール* > *ホスト データの更新* を選択します。
+. VMware vSphere Web クライアントのショートカット ページで、プラグイン セクションの * NetApp ONTAPツール* を選択します。
+. ONTAP tools for VMware vSphereプラグインの概要 (ダッシュボード) にある *ESXi ホスト コンプライアンス* カードに移動します。
+. *推奨設定を適用*リンクを選択します。
+. *推奨ホスト設定の適用* ウィンドウで、 NetApp の推奨設定に準拠するように更新するホストを選択し、*次へ* を選択します。
++
+
+NOTE: ESXi ホストを展開して現在の値を確認できます。
+
+. 設定ページで、必要に応じて推奨値を選択します。
+. 概要ペインで値を確認し、[完了] を選択します。最近のタスク パネルで進行状況を追跡できます。
+
+
+
+
+== ESXiホストの値を設定する
+
+ONTAP tools for VMware vSphereを使用して、ESXi ホスト上でタイムアウトやその他の値を設定することで、最高のパフォーマンスとフェイルオーバーの成功を確保できます。  ONTAP tools for VMware vSphereが設定する値は、 NetApp の内部テストに基づいています。
+
+次に示すESXiホストの値を設定できます。
+
+
+
+=== HBA / CNA アダプタ設定
+
+次のパラメータをデフォルト値に設定します。
+
+* Disk.QFullSampleSize
+* Disk.QFullThreshold
+* Emulex FC HBAタイムアウト
+* QLogic FC HBAタイムアウト
+
+
+
+
+=== MPIO 設定
+
+MPIO 設定は、 NetAppストレージ システムの優先パスを定義します。利用可能なパスのうちどれが最適化されているか (相互接続ケーブルを通過する最適化されていないパスとは対照的) を決定し、優先パスをそれらのパスの 1 つに設定します。
+
+高パフォーマンス環境の場合、または単一の LUN データストアでパフォーマンスをテストしている場合は、ラウンドロビン (VMW_PSP_RR) パス選択ポリシー (PSP) の負荷分散設定を、デフォルトの IOPS 設定の 1000 から値 1 に変更することを検討してください。
+
+
+NOTE: MPIO 設定は、NVMe、NVMe/FC、および NVMe/TCP プロトコルには適用されません。
+
+
+
+=== NFS設定
+
+|===
+
+
+| パラメータ | この値を次のように設定します... 
+
+
+| Net.TcpipHeapSize | 32 
+
+
+| Net.TcpipHeapMax | 1024 MB 
+
+
+| NFS.MaxVolumes | 256 
+
+
+| NFS41.MaxVolumes | 256 
+
+
+| NFS.MaxQueueDepth | 128以上 
+
+
+| NFS.HeartbeatMaxFailures | 10 
+
+
+| NFS.HeartbeatFrequency | 12 
+
+
+| NFS.HeartbeatTimeout | 5 
+|===

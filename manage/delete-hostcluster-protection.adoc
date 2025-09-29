@@ -1,0 +1,22 @@
+---
+permalink: manage/delete-hostcluster-protection.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: ホスト クラスタの保護を削除すると、データストアは保護されなくなります。 
+---
+= ホストクラスタ保護を削除する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ホスト クラスタの保護を削除すると、データストアは保護されなくなります。
+
+.手順
+. 保護されたホスト クラスターを表示するには、* NetApp ONTAPツール* > *保護* > *ホスト クラスター リレーションシップ* に移動します。
++
+このページでは、保護されたホスト クラスタとその保護状態、 SnapMirror関係、および対応するSnapMirrorステータスを監視できます。
+
+. *ホスト クラスター保護* ウィンドウで、クラスターに対する省略記号メニューを選択し、*保護の削除* を選択します。
+

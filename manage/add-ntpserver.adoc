@@ -1,0 +1,24 @@
+---
+permalink: manage/add-ntpserver.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAPツール アプライアンスのタイム クロックを同期するには、NTP サーバーの詳細を入力します。 
+---
+= NTPサーバーを追加する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAPツール アプライアンスのタイム クロックを同期するには、NTP サーバーの詳細を入力します。
+
+.手順
+. Web ブラウザからONTAPツール マネージャを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者認証情報を使用してログインします。
+. *設定* > *NTP サーバー* > *編集* オプションを選択します。
+. カンマ区切りの完全修飾ドメイン名 (FQDN)、IPv4、または IPv6 アドレスを入力します。
++
+更新された値を確認するには画面を更新してください。
+
+

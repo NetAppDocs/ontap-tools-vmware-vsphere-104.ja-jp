@@ -1,0 +1,24 @@
+---
+permalink: manage/disable-autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: ストレージ システムを初めて構成する場合、 AutoSupport はデフォルトで有効になります。有効になってから 24 時間以内にテクニカル サポートにメッセージが送信されます。 
+---
+= AutoSupportを無効にする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージ システムを初めて構成する場合、 AutoSupport はデフォルトで有効になります。有効になってから 24 時間以内にテクニカル サポートにメッセージが送信されます。  AutoSupport を無効にすると、プロアクティブなサポートと監視は受けられなくなります。
+
+
+NOTE: AutoSupportを有効にしておくことをお勧めします。問題の検出と解決を迅速化するのに役立ちます。システムは、無効になっている場合でも、 AutoSupport情報を収集し、ローカルに保存します。ただし、レポートはどのネットワークにも送信されません。
+
+.手順
+. Web ブラウザからONTAPツール マネージャを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者認証情報を使用してログインします。
+. *設定* > *テレメトリ* > *編集* オプションを選択します。
+. * AutoSupport* オプションの選択を解除し、変更を保存します。
+

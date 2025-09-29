@@ -1,0 +1,21 @@
+---
+permalink: manage/manage-storage-threshold.html 
+sidebar: sidebar 
+keywords:  
+summary: ボリュームと合計容量が特定のレベルに達したときに vCenter Server で通知を受信するためのしきい値を設定できます。 
+---
+= ストレージしきい値を管理する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ボリュームと合計容量が特定のレベルに達したときに vCenter Server で通知を受信するためのしきい値を設定できます。
+
+.手順：
+. vSphere クライアントにログインします。
+. ショートカット ページで、プラグイン セクションの * NetApp ONTAPツール* を選択します。
+. ONTAPツールの左ペインで、*設定* > *しきい値設定* > *編集* に移動します。
+. *しきい値の編集*ウィンドウで、*ほぼ満杯*フィールドと*満杯*フィールドに必要な値を入力し、*保存*を選択します。数値を推奨値（ほぼ満タンの場合は 80、満タンの場合は 90）にリセットできます。
+

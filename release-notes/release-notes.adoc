@@ -1,0 +1,20 @@
+---
+permalink: release-notes/release-notes.html 
+sidebar: sidebar 
+keywords: release notes, ontap tools for VMware vSphere 
+summary: 新しい機能と拡張機能、修正された問題、既知の問題、注意事項、制限事項など、 ONTAP tools for VMware vSphereのこのリリースに関する重要な情報を提供します。 
+---
+= リリース ノート
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereで利用できる新機能と拡張機能について説明します。
+
+新機能と強化機能の完全なリストについては、xref:whats-new.adoc[ONTAP tools for VMware vSphereの新機能] 。
+
+ONTAP tools for VMware vSphere 9からONTAPツール10.4への移行がお客様の環境に適しているかどうかについて詳しくは、以下を参照してください。xref:ontap-tools-9-ontap-tools-10-feature-comparison.adoc[ONTAP tools for VMware vSphere 9 とONTAP tools for VMware vSphere 10 の機能比較] 。  ONTAP tools for VMware vSphereからONTAP tools for VMware vSphereへの移行がサポートされています。
+
+詳細については、 https://library.netapp.com/ecm/ecm_download_file/ECMLP3343864["ONTAP tools for VMware vSphereのリリース ノート"^] 。リリース ノートにアクセスするには、NetAppアカウントでサインインするか、アカウントを作成する必要があります。

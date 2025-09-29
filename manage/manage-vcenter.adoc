@@ -1,0 +1,63 @@
+---
+permalink: manage/manage-vcenter.html 
+sidebar: sidebar 
+keywords:  
+summary: vCenter は、ホスト、仮想マシン、ストレージ バックエンドを制御できる中央管理プラットフォームです。 
+---
+= vCenter Serverインスタンスを管理する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server インスタンスは、ホスト、仮想マシン、およびストレージ バックエンドを制御できる集中管理プラットフォームです。
+
+
+
+== ストレージ バックエンドと vCenter Server インスタンスの関連付けを解除します。
+
+vCenter Server リスト ページには、関連付けられているストレージ バックエンドの数が表示されます。各 vCenter Server インスタンスには、ストレージ バックエンドとの関連付けまたは関連付け解除を行うオプションがあります。
+
+.手順
+. Web ブラウザからONTAPツール マネージャを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者認証情報を使用してログインします。
+. サイドバーから必要な vCenter Server インスタンスを選択します。
+. ストレージ バックエンドに関連付ける、または関連付けを解除する vCenter Server に対して縦の省略記号を選択します。
+. *ストレージ バックエンドの関連付けを解除*を選択します。
+
+
+
+
+== vCenter Serverインスタンスを変更する
+
+vCenter Server インスタンスを変更するには、以下の手順に従います。
+
+. Web ブラウザからONTAPツール マネージャを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者認証情報を使用してログインします。
+. サイドバーから該当するvCenter Serverインスタンスを選択します。
+. 変更する vCenter Server の縦の省略記号を選択し、[*変更*] を選択します。
+. vCenter Server インスタンスの詳細を変更し、[*変更*] を選択します。
+
+
+
+
+== vCenter Serverインスタンスを削除する
+
+vCenter Server を削除する前に、vCenter Server に接続されているすべてのストレージ バックエンドを削除する必要があります。
+
+. Web ブラウザからONTAPツール マネージャを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者認証情報を使用してログインします。
+. サイドバーから該当するvCenter Serverインスタンスを選択します。
+. 削除する vCenter Server の縦の省略記号を選択し、[削除] を選択します。
++
+
+NOTE: vCenter Server インスタンスを削除すると、それらはアプリケーションによってメンテナンスされなくなります。
+
+
+
+ONTAPツールで vCenter Server インスタンスを削除すると、次のアクションが自動的に実行されます。
+
+* プラグインは登録されていません。
+* プラグイン権限とプラグイン ロールは削除されます。
+

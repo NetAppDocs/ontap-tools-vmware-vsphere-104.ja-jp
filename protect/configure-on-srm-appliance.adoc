@@ -1,0 +1,44 @@
+---
+permalink: protect/configure-on-srm-appliance.html 
+sidebar: sidebar 
+keywords:  
+summary: 'VMware Live Site Recovery アプライアンスを展開した後、ストレージ レプリケーション アダプタ (SRA) を構成して、災害復旧管理を有効にします。' 
+---
+= VMware Live Site RecoveryアプライアンスでSRAを構成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware Live Site Recovery アプライアンスを展開した後、ストレージ レプリケーション アダプタ (SRA) を構成して、災害復旧管理を有効にします。
+
+VMware Live Site Recovery アプライアンスで SRA を構成すると、ONTAP tools for VMware vSphereがアプライアンス内に保存され、VMware Live Site Recovery と SRA 間の通信が可能になります。
+
+.開始する前に
+* _.tar.gz_ファイルを https://mysupport.netapp.com/site/products/all/details/otv10/downloads-tab["NetAppサポート サイト"]。
+* ONTAPツール マネージャーで SRA サービスを有効にします。詳細については、 link:../manage/enable-services.html["サービスを有効にする"]セクション。
+* VMware vSphere アプライアンスの ONTATP ツールに vCenter Server を追加します。詳細については、 link:../configure/add-vcenter.html["vCenter Server を追加する"]セクション。
+* ONTAP tools for VMware vSphereにストレージ バックエンドを追加します。詳細については、 link:../configure/add-storage-backend.html["ストレージバックエンドを追加する"]セクション。
+
+
+.手順
+. VMware Live Site Recovery アプライアンス画面で、*ストレージ レプリケーション アダプタ* > *新しいアダプタ* を選択します。
+. _.tar.gz_ ファイルを VMware Live Site Recovery にアップロードします。
+. PuTTY などの SSH クライアントを介して管理者アカウントを使用して VMware Live Site Recovery アプライアンスにログインします。
+. 次のコマンドを使用して、root ユーザーに切り替えます。 `su root`
+. コマンドを実行する `cd /var/log/vmware/srm`ログディレクトリに移動します。
+. ログの場所で、SRA で使用される docker ID を取得するコマンドを入力します。 `docker ps -l`
+. コンテナ ID にログインするには、次のコマンドを入力します。 `docker exec -it -u srm <container id> sh`
+. 次のコマンドを使用して、 ONTAP tools for VMware vSphere IP アドレスとパスワードで VMware Live Site Recovery を構成します。  `perl command.pl -I --otv-ip <OTV_IP>:8443 --otv-username <Application username> --otv-password <Application password> --vcenter-guid <VCENTER_GUID>`
++
+** パスワードを一重引用符で囲んで指定すると、Perl スクリプトは特殊文字を区切り文字としてではなく、パスワードの一部として扱います。
+** アプリケーション（VASA Provider/SRA）のユーザー名とパスワードは、これらのサービスを初めて有効にする際に、 ONTAP Tools Manager で設定できます。これらの資格情報を使用して、SRA を VMware Live Site Recovery に登録します。
+** vCenter GUID を見つけるには、vCenter インスタンスを追加した後、 ONTAPツール マネージャの vCenter Server ページに移動します。参照link:../configure/add-vcenter.html["vCenter Server を追加する"]セクション。
+
+
+. アダプタを再スキャンして、更新された詳細が VMware Live Site Recovery のストレージ レプリケーション アダプタ ページに表示されることを確認します。
+
+
+.結果
+ストレージ資格情報が保存されたことを示す確認メッセージが表示されます。これで、SRA は指定された IP アドレス、ポート、および資格情報を使用して SRA サーバーと通信できるようになりました。

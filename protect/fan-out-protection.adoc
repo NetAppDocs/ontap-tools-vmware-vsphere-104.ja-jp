@@ -1,0 +1,47 @@
+---
+permalink: protect/fan-out-protection.html 
+sidebar: sidebar 
+keywords:  
+summary: ファンアウト保護では、コンシステンシ グループは、最初の宛先ONTAPクラスタ上の同期関係と、2 番目の宛先ONTAPクラスタ上の非同期関係によって二重に保護されます。 
+---
+= ファンアウト保護
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ファンアウト保護では、コンシステンシ グループは、最初の宛先ONTAPクラスタ上の同期関係と、2 番目の宛先ONTAPクラスタ上の非同期関係によって二重に保護されます。SnapMirrorアクティブ同期保護の作成、編集、および削除ワークフローにより、同期保護が維持されます。  SRM フェイルオーバーおよび再保護ワークフローは非同期保護を維持します。
+
+ファンアウト保護を確立するには、3 つのサイト クラスターと SVM をピアリングする必要があります。
+
+例：
+
+|===
+
+
+| 実行している場合、 | それから 
+
+
+ a| 
+* ソース整合性グループはクラスタ c1 と SVM svm1 にあります
+* 最初の宛先コンシステンシグループはクラスタc2とSVM svm2にあり、
+* 2番目の宛先コンシステンシグループはクラスタc3とSVM svm3にあります
+
+ a| 
+* ソースONTAPクラスタ上のクラスタ ピアリングは (C1、C2) と (C1、C3) になります。
+* 最初の宛先ONTAPクラスタのクラスタピアリングは（C2、C1）と（C2、C3）となり、
+* 2 番目の宛先ONTAPクラスタ上のクラスタ ピアリングは (C3、C1) と (C3、C2) になります。
+* ソース SVM 上の SVM ピアリングは (svm1、svm2) と (svm1、svm3) になります。
+* 最初の宛先SVMのSVMピアリングは(svm2、svm1)と(svm2、svm3)となり、
+* 2 番目の宛先 SVM 上の SVM ピアリングは (svm3、svm1) と (svm3、svm2) になります。
+
+
+|===
+次の図はファンアウト保護の構成を示しています。image:../media/fan-out-protection.png["ファンアウト保護構成"] image:../media/fan-out-protection-relationship.png["ファンアウト保護関係"]
+
+*手順*
+
+. 新しいプレースホルダー データストアを作成します。参照する https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/about-placeholder-virtual-machines/configure-a-placeholder-datastore.html["プレースホルダデータストアを選択"]
+. ホストクラスタ保護にデータストアを追加するlink:../manage/edit-hostcluster-protection.html["保護されたホスト クラスターを変更する"]。非同期ポリシー タイプと同期ポリシー タイプの両方を追加する必要があります。
+

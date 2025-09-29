@@ -1,0 +1,12 @@
+---
+section: automation
+title: REST APIを使用した自動化
+entries:
+- title: REST APIについて学ぶ
+  url: "/automation/learn-rest-api.html"
+- title: REST実装
+  url: "/automation/rest-implementation.html"
+- title: 最初のREST API呼び出し
+  url: "/automation/first-call.html"
+- title: APIリファレンス
+  url: "/automation/api-reference.html"

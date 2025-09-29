@@ -1,0 +1,28 @@
+---
+section: concepts
+title: 概念
+entries:
+- title: ONTAP tools for VMware vSphereの概要
+  url: "/concepts/ontap-tools-overview.html"
+- title: 重要な概念と用語
+  url: "/concepts/ontap-tools-concepts-terms.html"
+- title: ロールベース アクセス制御
+  entries:
+  - title: RBACの詳細
+    url: "/concepts/rbac-learn-about.html"
+  - title: VMware vSphere を使用した RBAC
+    entries:
+    - title: vCenter Server環境
+      url: "/concepts/rbac-vcenter-environment.html"
+    - title: vCenter ServerでRBACを使用する
+      url: "/concepts/rbac-vcenter-use.html"
+  - title: ONTAPを使用した RBAC
+    entries:
+    - title: ONTAP環境
+      url: "/concepts/rbac-ontap-environment.html"
+    - title: ONTAPでRBACを使用する
+      url: "/concepts/rbac-ontap-use.html"
+- title: ONTAP tools for VMware vSphereの高可用性
+  url: "/concepts/high-availability.html"
+- title: ONTAPツールマネージャのユーザーインターフェース
+  url: "/configure/manager-user-interface.html"

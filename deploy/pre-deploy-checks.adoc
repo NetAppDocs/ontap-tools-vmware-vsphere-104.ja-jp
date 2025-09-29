@@ -1,0 +1,147 @@
+---
+permalink: deploy/pre-deploy-checks.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: ONTAP Tools for VMware vSphereを導入する前に、導入パッケージのスペース要件とホスト システムのいくつかの基本的な要件について理解しておく必要があります。 
+---
+= 始める前に…​
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+展開を続行する前に、次の要件が満たされていることを確認してください。
+
+|===
+| 要件 | あなたのステータス 
+
+
+| vSphere バージョン、 ONTAPバージョン、ESXi ホスト バージョンは、ONTP ツール バージョンと互換性があります。 | ❏ はい ❏ いいえ 
+
+
+| vCenter Server環境がセットアップされ構成されている | ❏ はい ❏ いいえ 
+
+
+| ブラウザのキャッシュが削除されました | ❏ はい ❏ いいえ 
+
+
+| 親vCenter Serverの認証情報を持っている | ❏ はい ❏ いいえ 
+
+
+| ONTAP tools for VMware vSphereが導入後に登録のために接続する vCenter Server インスタンスのログイン認証情報を持っていること | ❏ はい ❏ いいえ 
+
+
+| 証明書が発行されるドメイン名は、カスタム CA 証明書が必須であるマルチ vCenter 展開内の仮想 IP アドレスにマッピングされます。 | ❏ はい ❏ いいえ 
+
+
+| ドメイン名に対して nslookup チェックを実行し、ドメインが意図した IP アドレスに解決されているかどうかを確認します。 | ❏ はい ❏ いいえ 
+
+
+| 証明書は、ドメイン名とONTAPツールの IP アドレスを使用して作成されます。 | ❏ はい ❏ いいえ 
+
+
+| ONTAPツール アプリケーションと内部サービスは、vCenter Server からアクセスできます。 | ❏ はい ❏ いいえ 
+
+
+| マルチテナント SVM を使用する場合、各 SVM に SVM 管理 LIF が存在します。 | ❏ はい ❏ いいえ 
+|===
+
+
+== 展開ワークシート
+
+
+
+=== 単一ノード展開の場合
+
+次のワークシートを使用して、 ONTAP tools for VMware vSphereに必要な情報を収集します。
+
+|===
+| 要件 | あなたの価値 
+
+
+| ONTAPツール アプリケーションの IP アドレス。これは、ONTAPツールのWebインターフェースにアクセスするためのIPアドレスです。 |  
+
+
+| 内部通信用のONTAPツール仮想 IP アドレス。この IP アドレスは、複数のONTAPツール インスタンスを含むセットアップでの内部通信に使用されます。この IP アドレスは、 ONTAPツール アプリケーションの IP アドレスと同じにしないでください。 |  
+
+
+| 最初のノードのDNSホスト名 |  
+
+
+| プライマリDNSサーバー |  
+
+
+| セカンダリDNSサーバー |  
+
+
+| DNS検索ドメイン |  
+
+
+| 最初のノードの IPv4 アドレス。これは、管理ネットワーク上のノード管理インターフェイスの一意の IPv4 アドレスです。 |  
+
+
+| IPv4アドレスのサブネットマスク |  
+
+
+| IPv4アドレスのデフォルトゲートウェイ |  
+
+
+| IPv6アドレス（オプション） |  
+
+
+| IPv6プレフィックス長（オプション） |  
+
+
+| IPv6 アドレスのゲートウェイ (オプション) |  
+|===
+
+NOTE: 上記のすべての IP アドレスの DNS レコードを作成します。ホスト名を割り当てる前に、それらを DNS 上の空いている IP アドレスにマッピングします。すべての IP アドレスは、展開用に選択された同じ VLAN 上にある必要があります。
+
+
+
+=== 高可用性（HA）展開の場合
+
+単一ノードの展開要件に加えて、HA 展開には次の情報が必要です。
+
+|===
+
+
+| 要件 | あなたの価値 
+
+
+| プライマリDNSサーバー |  
+
+
+| セカンダリDNSサーバー |  
+
+
+| DNS検索ドメイン |  
+
+
+| 2番目のノードのDNSホスト名 |  
+
+
+| 2番目のノードのIPアドレス |  
+
+
+| 3番目のノードのDNSホスト名 |  
+
+
+| 3番目のノードのIPアドレス |  
+|===
+
+
+== ネットワークファイアウォールの構成
+
+ネットワーク ファイアウォールで IP アドレスに必要なポートを開きます。 ONTAPツールはポート 443 を介してこの LIF にアクセスできる必要があります。参照link:../deploy/prerequisites.html["ポート要件"]最新情報については。
+
+
+
+== ONTAPストレージ設定
+
+ONTAPストレージとONTAP tools for VMware vSphereとのシームレスな統合を確保するには、次の設定を考慮してください。
+
+* ストレージ接続にファイバ チャネル (FC) を使用している場合は、FC スイッチのゾーニングを構成して、ESXi ホストを SVM の FC LIF に接続します。 https://docs.netapp.com/us-en/ontap/san-config/fibre-channel-fcoe-zoning-concept.html["ONTAPシステムによる FC および FCoE ゾーニングについて学習します"]
+* ONTAPツールで管理されるSnapMirrorレプリケーションを使用するには、 ONTAPストレージ管理者は https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html["ONTAPクラスタピア関係"]そして https://docs.netapp.com/us-en/ontap/peering/create-intercluster-svm-peer-relationship-93-later-task.html["ONTAPクラスタ間 SVM ピア関係"]SnapMirrorを使用する前に、 ONTAPで .
+

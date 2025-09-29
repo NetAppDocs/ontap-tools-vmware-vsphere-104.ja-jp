@@ -1,0 +1,22 @@
+---
+section: configure
+title: ONTAP Tools for VMware vSphereの設定
+entries:
+- title: vCenter Serverインスタンスを追加する
+  url: "/configure/add-vcenter.html"
+- title: VASA プロバイダを vCenter Server に登録する
+  url: "/configure/registration-process.html"
+- title: NFS VAAIプラグインのインストール
+  url: "/configure/install-nfs-vaai-plug-in.html"
+- title: ESXiホスト設定を構成する
+  url: "/configure/configure-esx-server-multipath-and-timeout-settings.html"
+- title: ONTAPユーザーの役割と権限を構成する
+  url: "/configure/configure-user-role-and-privileges.html"
+- title: ストレージバックエンドを追加する
+  url: "/configure/add-storage-backend.html"
+- title: ストレージ バックエンドを vCenter Server インスタンスに関連付ける
+  url: "/configure/associate-storage-backend.html"
+- title: ネットワークアクセスを構成する
+  url: "/configure/configure-network-access.html"
+- title: データストアを作成する
+  url: "/configure/create-datastore.html"

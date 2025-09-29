@@ -1,0 +1,68 @@
+---
+permalink: manage/nested-igroups.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= ONTAPツールで管理されるigroupを理解する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAPツール VM とONTAPストレージ システムの両方を管理する場合、特にデータストアを非ONTAPツール環境からONTAPツール管理に移行する場合は、igroup の動作を理解することが重要です。このセクションでは、この移行中に igroup がどのように更新されるかについて説明します。
+
+ONTAP tools for VMware vSphereは、 VMware データセンター環境内でのONTAPおよび vCenter オブジェクトの作成とメンテナンスを自動化することで、データストアの管理を簡素化します。
+
+ONTAP tools for VMware vSphereは、 igroup を 2 つの異なるコンテキストで解釈します。
+
+.ONTAPツール以外で管理されるigroup
+ストレージ管理者は、 ONTAPシステム上にフラット構造またはネスト構造の igroup を作成できます。この図は、 ONTAPシステムで作成されたフラット igroup を示しています。
+
+image:../media/non-otv-managed.png["ONTAPツール以外で管理されるigroup"]
+
+.ONTAPツールが管理するigroup
+データストアを作成すると、 ONTAP tools for VMware vSphereは、 LUN マッピングを容易にするためにネストされた構造を使用して igroup を自動的に作成します。
+
+たとえば、データストア 1 がホスト 1、2、3 に作成されてマウントされ、新しいデータストア (データストア 2) がホスト 3、4、5 に作成されてマウントされると、 ONTAPツールは効率的な管理のためにホスト レベルの igroup を再利用します。
+
+image:../media/otv-managed.png["ONTAPツールで管理されるigroup"]
+
+image:../media/otv-managed2.png["ONTAPツールは、再利用された子 igroup を持つ igroup を管理します"]
+
+ここでは、ONTAP tools for VMware vSphereのいくつかの事例を示します。
+
+*デフォルトのigroup設定でデータストアを作成する場合*
+
+データストアを作成し、igroup フィールドを空白のままにすると（デフォルト設定）、 ONTAPツールによってそのデータストアのネストされた igroup 構造が自動的に生成されます。データストア レベルの親 igroup は、otv_<vcguid>_<host_parent_datacenterMoref>_<datastore_name> というパターンを使用して名前が付けられます。各ホスト レベルの子 igroup は、otv_<hostMoref>_<vcguid> というパターンに従います。ONTAPストレージ インターフェイスの *親イニシエータ グループ* セクションで、親 (データストア レベル) と子 (ホスト レベル) igroup 間の関連付けを表示できます。
+
+ネストされた igroup アプローチでは、LUN は子 igroup にのみマッピングされます。その後、vCenter Server インベントリに新しいデータストアが表示されます。
+
+*カスタムigroup名でデータストアを作成する場合*
+
+ONTAPツールでデータストアを作成するときに、ドロップダウンから選択する代わりに、カスタム igroup 名を入力できます。次に、 ONTAPツールは指定された名前を使用してデータストア レベルで親 igroup を作成します。複数のデータストアに同じホストが使用される場合、既存のホスト レベル (子) igroup が再利用されます。その結果、新しいデータストアの LUN はこの既存の子 igroup にマップされ、複数の親 igroup (データストアごとに 1 つ) に関連付けられる可能性があります。vCenter Server ユーザー インターフェイスのデータストア リストで、カスタム igroup 名を持つ新しいデータストアが正常に作成されたことが確認されます。
+
+*データストアの作成時にigroup名を再利用する場合*
+
+ONTAPツールのユーザー インターフェイスを使用してデータストアを作成するときに、ドロップダウン リストから既存のカスタム親 igroup を選択できます。親 igroup を再利用して別のデータストアを作成すると、 ONTAPシステムのユーザー インターフェイスにこの関連付けが表示されます。新しいデータストアは vCenter Server ユーザー インターフェイスにも表示されます。
+
+この操作は API を使用して実行することもできます。データストアの作成中に既存の igroup を再利用するには、API リクエスト ペイロードで igroup UUID を指定します。
+
+* ONTAPとvCenterからネイティブにデータストアとigroupを作成する場合*
+
+ONTAPシステムおよび VMware 環境で igroup およびデータストアを直接作成する場合、最初はONTAPツールはこれらのオブジェクトを管理しません。これにより、フラットな igroup 構造が作成されます。
+
+image:../media/vmfsds-native.png["データストアとigroupがネイティブに作成されました"]
+
+ONTAPツールを使用して既存のデータストアと igroup を管理するには、データストアの検出を実行する必要があります。ONTAPツールは、データストアと igroup を識別して登録し、データベース内のネストされた構造に変換します。カスタム名を使用して新しい親 igroup が作成され、既存の igroup は「otv_」プレフィックスを使用して名前が変更され、子 igroup になります。イニシエーター マッピングは変更されません。検出中に、データストアにマップされた igroup のみが変換されます。この後、igroup 構造は次の図のようになります。
+
+image:../media/otv-ds.png["ONTAPツールによって管理されるデータストアとigroup"]
+
+vCenter Server でデータストアを直接作成し、後でONTAPツールの管理下に置くことができます。まず、 ONTAPシステムにフラット igroup を作成し、それに LUN をマップします。ONTAPツールでデータストア検出を実行すると、フラット igroup はネストされた構造に変換されます。その後、 ONTAPツールは igroup を管理し、その名前を「otv_」プレフィックスに変更します。このプロセス全体を通じて、LUN は同じ igroup にマップされたままになります。
+
+* ONTAPツールがネイティブに作成された igroup を再利用する方法*
+
+ONTAPONTAPで管理した後、その igroup を使用してONTAPツールでデータストアをプロビジョニングできます。これらの igroup は、カスタム イニシエータ グループ名のドロップダウン リストに表示されます。次に、データストアの新しい LUN が、対応する正規化された子 igroup (「otv_NativeIgroup1」など) にマップされます。
+
+ONTAP tools for VMware vSphereは、 ONTAPツールによって管理されていない、またはデータストアにリンクされていないONTAPシステムで作成された igroup を検出または使用しません。

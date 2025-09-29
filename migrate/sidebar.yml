@@ -1,0 +1,8 @@
+---
+section: migrate
+title: ONTAP tools for VMware vSphereを10.4 に移行する
+entries:
+- title: ONTAP tools for VMware vSphereへの移行
+  url: "/migrate/migrate-to-latest-ontaptools.html"
+- title: VASA プロバイダーを移行し、SRA を更新する
+  url: "/migrate/sra-vasa-migration.html"

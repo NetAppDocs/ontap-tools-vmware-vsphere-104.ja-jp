@@ -1,0 +1,29 @@
+---
+permalink: migrate/migrate-to-latest-ontaptools.html 
+sidebar: sidebar 
+keywords: migrate 
+summary: ストレージ データを移行する場合、ストレージ バックエンドは REST API を使用して手動でオンボードされます。  VASA プロバイダー データを移行する場合、データは既存の Derby データベースからエクスポートされ、MongoDB データベースにインポートされます。 
+---
+= ONTAP tools for VMware vSphereから 10.4 に移行する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereのNetApp ONTAP ツールをバージョン 9.xx から 10.x に移行する場合、バージョン間での製品の大幅な更新と機能強化のため、移行プロセスが必要になります。
+
+ONTAP tools for VMware vSphereからONTAP tools for VMware vSphereに移行できます。
+
+セットアップに NFS および VMFS データストアがあり、 vVolsデータストアがない場合は、 ONTAPツール 9.xx をアンインストールし、 ONTAPツール 10.x を展開するだけです。ただし、セットアップにvVolsデータストアが含まれている場合は、VASA プロバイダーと SRA を移行するプロセスを実行する必要があります。
+
+次の表は、これら 2 つの異なるシナリオにおける移行プロセスの概要を示しています。
+
+|===
+| *セットアップにvVolsデータストアがある場合* | *セットアップにNFSとVMFSデータストアのみが含まれている場合* 
+
+
+| 手順: 1.link:../migrate/sra-vasa-migration.html["VASAプロバイダーの移行"] 2. https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/storage-policy-based-management-in-vsphere/creating-and-managing-vsphere-storage-policies.html["VMストレージポリシーを作成する"] | 手順: 1.環境からONTAPツール 9.xx を削除します。参照 https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/OTV_How_to_remove_OTV_9_12_from_your_environment["OTV 9.xx を環境から削除する方法"]NetAppナレッジベースの記事。2.link:../deploy/quick-start.html["ONTAP tools for VMware vSphereを導入および構成する"] 3.link:../migrate/sra-vasa-migration.html["SRAの更新"] 4. https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-storage-8-0/storage-policy-based-management-in-vsphere/creating-and-managing-vsphere-storage-policies.html["VMストレージポリシーを作成する"] 
+|===
+
+NOTE: ONTAP tools for VMware vSphere 9.xx から 10.4 に移行すると、 ONTAPツール 10.4 は VMFS データストアでのみ NVMe-oF プロトコルをサポートするため、NVMe/FC プロトコルを使用するvVolsデータストアは動作しなくなります。

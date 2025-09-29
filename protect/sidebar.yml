@@ -1,0 +1,36 @@
+---
+section: protect
+title: データストアと仮想マシンの保護
+entries:
+- title: ホストクラスタ保護を使用して保護する
+  url: "/configure/protect-cluster.html"
+- title: SRA保護を使用して保護する
+  entries:
+  - title: データストアを保護するためにSRAを構成する
+    url: "/protect/enable-storage-replication-adapter.html"
+  - title: SANおよびNAS環境向けにSRAを構成する
+    url: "/protect/configure-storage-replication-adapter-for-san-environment.html"
+  - title: 大規模環境向けに SRA を構成する
+    url: "/protect/configure-storage-replication-adapter-for-highly-scaled-environment.html"
+  - title: VMware Live Site RecoveryアプライアンスでSRAを構成する
+    url: "/protect/configure-on-srm-appliance.html"
+  - title: SRAクレデンシャルの更新
+    url: "/protect/update-credentials.html"
+  - title: 保護対象サイトとリカバリ サイトの設定
+    url: "/protect/configure-protection-groups.html"
+  - title: 保護対象サイトとリカバリ サイトのリソースの設定
+    entries:
+    - title: ネットワーク マッピングの設定
+      url: "/protect/map-network.html"
+    - title: フォルダ マッピングの設定
+      url: "/protect/map-folder.html"
+    - title: リソース マッピングの設定
+      url: "/protect/map-resource.html"
+    - title: プレースホルダ データストアの設定
+      url: "/protect/configure-placeholder-datastores.html"
+    - title: アレイ マネージャを使用したSRAの設定
+      url: "/protect/configure-array-manager.html"
+  - title: レプリケートされたストレージ システムの検証
+    url: "/protect/verify-the-replicated-storage-environment.html"
+  - title: ファンアウト保護
+    url: "/protect/fan-out-protection.html"

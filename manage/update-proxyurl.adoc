@@ -1,0 +1,25 @@
+---
+permalink: manage/update-proxyurl.html 
+sidebar: sidebar 
+keywords:  
+summary: 'ONTAP tools for VMware vSphere のグラフィカル ユーザー インターフェイス (GUI) で使用可能なオプションから、 ONTAP tools for VMware vSphereのログ ファイルを収集できます。テクニカル サポートに問題のトラブルシューティングを依頼すると、ログ ファイルの収集を求められることがあります。' 
+---
+= AutoSupportプロキシ URL を更新する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ネットワーク アクセス制御やセキュリティ対策にプロキシ サーバーが使用されるシナリオでAutoSupport機能が適切に機能するように、 AutoSupportプロキシ URL を更新します。これにより、 AutoSupportデータを適切なプロキシ経由でルーティングできるようになり、安全な転送とコンプライアンスが実現します。
+
+.手順
+. Web ブラウザからONTAPツール マネージャを起動します。 `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. 導入時に指定したONTAP tools for VMware vSphere管理者認証情報を使用してログインします。
+. サイドバーから*設定*を選択します。
+. *設定* > *テレメトリ* > *編集* オプションを選択します。
+. 有効な*プロキシ URL* を入力し、変更を保存します。
++
+AutoSupportを無効にすると、プロキシ URL も無効になります。
+
+

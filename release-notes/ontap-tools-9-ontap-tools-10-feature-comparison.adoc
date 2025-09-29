@@ -1,0 +1,46 @@
+---
+permalink: release-notes/ontap-tools-9-ontap-tools-10-feature-comparison.html 
+sidebar: sidebar 
+keywords: release notes, feature, comparison 
+summary: ONTAP tools for VMware vSphere 9 とONTAP tools for VMware vSphere 10 の機能比較について学びます 
+---
+= ONTAP tools for VMware vSphere 9 とONTAP tools for VMware vSphere 10 の機能比較
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphere 9 からONTAP tools for VMware vSphere 10.1 以降のバージョンへの移行が適切かどうかを確認します。
+
+
+NOTE: 最新の互換性情報については、 https://mysupport.netapp.com/matrix["NetApp Interoperability Matrix Tool"^] 。
+
+[cols="20%,25%,25%,30%"]
+|===
+| 特徴 | ONTAPツール9.13 | ONTAPツール10.1 | ONTAPツール10.2以降 
+
+
+| 主な価値提案 | 強化されたセキュリティ、コンプライアンス、自動化機能により、Day 0 から Day 2 の運用を合理化および簡素化します。 | 高可用性、パフォーマンス、スケールの限界を拡張しながら、 ONTAPツール 10.x を 9.xx と同等に進化させます。 | サポートが拡張され、VMFS およびvVolsの FC、および VMFS 専用の NVMe-oF/FC、NVMe-oF/TCP が含まれるようになりました。  NetApp SnapMirrorの使いやすさ、vSphere メトロ ストレージ クラスタのシンプルなセットアップ、および 3 サイトの VMware Live Site Recovery のサポート 
+
+
+| ONTAPリリース認定 | ONTAP 9.9.1 からONTAP 9.16.1 | ONTAP 9.12.1 からONTAP 9.14.1 | ONTAPツール 10.2 の場合はONTAP 9.12.1 からONTAP 9.15.1 まで。ONTAPツール 10.3 用のONTAP 9.14.1、9.15.1、9.16.0、および 9.16.1。ONTAPツール 10.4 用のONTAP 9.14.1、9.15.1、9.16.0、および 9.16.1。ASA r2 システムを使用する場合、 ONTAPツール 10.4 にはONTAP 9.16.1P3 以降が必要です。 
+
+
+| VMware リリースのサポート | vSphere 7.x-8.x VMware Site Recovery Manager (SRM) 8.5 から VMware Live Site Recovery 9.0 | vSphere 7.x-8.x VMware Site Recovery Manager (SRM) 8.7 から VMware Live Site Recovery 9.0 | vSphere 7.x-8.x VMware Site Recovery Manager (SRM) 8.7 から VMware Live Site Recovery 9.0 
+
+
+| プロトコルのサポート | NFS および VMFS データストア: NFS (v3 および v4.1)、VMFS (iSCSI および FCP) vVolsデータストア: iSCSI、FCP、NVMe/FC、NFS v3 | NFS および VMFS データストア: NFS (v3 および v4.1)、VMFS (iSCSI) vVolsデータストア: iSCSI、NFS v3 | NFS および VMFS データストア: NFS (v3 および v4.1)、VMFS (iSCSI/FCP/NVMe-oF) vVolsデータストア: iSCSI、FCP、NFS v3 
+
+
+| 拡張性 | ホストとVM: 300台のホスト、最大10K台のVM データストア: 600台のNFS、最大50台のVMFS、最大250台のvVols vVols: 最大14,000 | ホストとVM: 600ホストvVols: 最大140,000 | ホストとVM: 600ホストvVols: 最大140,000 
+
+
+| 可観測性 | パフォーマンス、容量、ホストコンプライアンスダッシュボード 動的なVMとデータストアレポート | パフォーマンス、容量、ホストコンプライアンスダッシュボードの更新 動的VMおよびデータストアレポート | パフォーマンス、容量、ホストコンプライアンスダッシュボードの更新 動的VMおよびデータストアレポート 
+
+
+| データ保護 | VMFSおよびNFSのSRAレプリケーション、 vVolsのFlexVolベースのレプリケーション、SCV統合およびバックアップの相互運用性 | iSCSI VMFSおよびNFS v3データストアのSRAレプリケーション | SMAS と VMware Live Site Recovery を組み合わせた iSCSI VMFS および NFS v3 データストアの 3 サイト保護の SRA レプリケーション。 
+
+
+| VASAプロバイダーのサポート | VASA 4.0 | VASA 3.0 | VASA 3.0 
+|===

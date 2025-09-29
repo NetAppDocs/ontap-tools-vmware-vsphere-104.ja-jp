@@ -1,0 +1,33 @@
+---
+permalink: configure/registration-process.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP tools for VMware vSphereを使用して、VASA プロバイダーを vCenter Server インスタンスに登録できます。 
+---
+= VASA プロバイダを vCenter Server インスタンスに登録する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereを使用して、VASA プロバイダーを vCenter Server インスタンスに登録できます。 VASA プロバイダ設定セクションには、選択した vCenter Server の VASA プロバイダ登録ステータスが表示されます。マルチ vCenter 展開では、各 vCenter Server インスタンスにカスタム CA 証明書があることを確認します。
+
+.手順
+. vSphere クライアントにログインします。
+. プラグイン セクションで、[*ショートカット*] > [* NetApp ONTAPツール*] を選択します。
+. *設定* > *VASA プロバイダー設定*を選択します。VASA プロバイダーの登録ステータスは未登録として表示されます。
+. *登録*ボタンを選択して、VASA プロバイダーを登録します。
+. VASA プロバイダーの名前と資格情報を入力します。ユーザー名には文字、数字、アンダースコアのみを含めることができます。パスワードの長さは 8 〜 256 文字にする必要があります。
+. *登録*を選択します。
+. 登録が正常に完了し、ページが更新されると、登録された VASA プロバイダーのステータス、名前、バージョンが表示されます。登録後、登録解除アクションがアクティブになります。
+
+
+.次の手順
+オンボードされた VASA プロバイダーが vCenter クライアントの VASA プロバイダーの下にリストされていることを確認します。
+
+.手順
+. vCenter Server インスタンスに移動します。
+. 管理者の資格情報を使用してログインします。
+. *ストレージ プロバイダー* > *構成* を選択します。オンボードされた VASA プロバイダーが正しくリストされていることを確認します。
+

@@ -1,0 +1,41 @@
+---
+permalink: deploy/ha-workflow.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: ONTAP tools for VMware vSphereの使用を開始するには、いくつかの手順が必要です。 
+---
+= 高可用性（HA）展開ワークフロー
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vVolsデータストアを使用している場合は、 ONTAPツールの初期導入を高可用性 (HA) 構成に拡張し、VASA プロバイダ サービスを有効にする必要があります。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]展開を拡大する
+[role="quick-margin-para"]
+ONTAP tools for VMware vSphereをスケールアップして、展開内のノードの数を増やし、構成を HA セットアップに変更できます。
+
+[role="quick-margin-list"]
+* link:../manage/edit-appliance-settings.html["ONTAP tools for VMware vSphereを変更する"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2"]サービスを有効にする
+[role="quick-margin-para"]
+vVolsデータストアを構成するには、VASA プロバイダー サービスを有効にする必要があります。VASA プロバイダーを vCenter に登録し、適切なネットワークとストレージの構成を含むストレージ ポリシーが HA 要件を満たしていることを確認します。
+
+[role="quick-margin-para"]
+SRA サービスを有効にして、VMware Site Recovery Manager (SRM) または VMware Live Site Recovery (VLSR) 用のONTAPツール ストレージ レプリケーション アダプタ (SRA) を使用します。
+
+[role="quick-margin-list"]
+* link:../manage/enable-services.html["VASAプロバイダーとSRAサービスを有効にする"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三つ"]証明書をアップグレードする
+[role="quick-margin-para"]
+複数の vCenter Server インスタンスで vVol データストアを使用している場合は、自己署名証明書を証明機関 (CA) 署名証明書にアップグレードします。
+
+[role="quick-margin-list"]
+* link:../manage/certificate-manage.html["証明書の管理"]
+

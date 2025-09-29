@@ -1,0 +1,62 @@
+---
+permalink: concepts/rbac-ontap-environment.html 
+sidebar: sidebar 
+keywords: ontap rbac, ontap rbac environment 
+summary: ONTAP は、堅牢で拡張可能な RBAC 環境を提供します。  RBAC 機能を使用すると、REST API および CLI を通じて公開されるストレージおよびシステム操作へのアクセスを制御できます。  ONTAP tools for VMware vSphereを使用する前に、環境をよく理解しておくと役立ちます。 
+---
+= ONTAP tools for VMware vSphereを使用したONTAP RBAC 環境
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP は、堅牢で拡張可能な RBAC 環境を提供します。  RBAC 機能を使用すると、REST API および CLI を通じて公開されるストレージおよびシステム操作へのアクセスを制御できます。  ONTAP tools for VMware vSphereを使用する前に、環境をよく理解しておくと役立ちます。
+
+
+
+== 管理オプションの概要
+
+ONTAP RBAC を使用する場合、環境と目的に応じていくつかのオプションが利用できます。主要な行政上の決定の概要は以下のとおりです。こちらもご覧ください https://docs.netapp.com/us-en/ontap-automation/rest/rbac_overview.html["ONTAP Automation: RBAC セキュリティの概要"^]詳細についてはこちらをご覧ください。
+
+
+NOTE: ONTAP RBAC はストレージ環境に合わせて調整されており、vCenter Server で提供される RBAC 実装よりもシンプルです。ONTAPでは、ロールをユーザーに直接割り当てます。ONTAP RBAC では、vCenter Server で使用されるような明示的な権限の設定は必要ありません。
+
+.役割と権限の種類
+ONTAPユーザーを定義するときは、 ONTAPロールが必要です。  ONTAPロールには 2 つの種類があります。
+
+* REST
++
+REST ロールはONTAP 9.6 で導入され、通常は REST API を介してONTAPにアクセスするユーザーに適用されます。これらのロールに含まれる権限は、 ONTAP REST API エンドポイントおよび関連するアクションへのアクセスの観点から定義されます。
+
+* 伝統的
++
+これらは、 ONTAP 9.6 より前に含まれていたレガシー ロールです。これらは引き続き RBAC の基本的な側面です。権限は、 ONTAP CLI コマンドへのアクセスの観点から定義されます。
+
+
+
+REST ロールは最近導入されましたが、従来のロールにもいくつかの利点があります。たとえば、追加のクエリ パラメータをオプションで含めることができるため、権限が適用されるオブジェクトがより正確に定義されます。
+
+.Scope
+ONTAPロールは、2 つの異なるスコープのいずれかで定義できます。これらは、特定のデータ SVM (SVM レベル) またはONTAPクラスタ全体 (クラスタ レベル) に適用できます。
+
+.役割の定義
+ONTAP は、クラスタ レベルと SVM レベルの両方で事前定義されたロールのセットを提供します。カスタム ロールを定義することもできます。
+
+
+
+== ONTAP RESTロールの操作
+
+ONTAP tools for VMware vSphereに含まれているONTAP REST ロールを使用する場合は、いくつかの考慮事項があります。
+
+.役割マッピング
+従来のロールを使用する場合でも、REST ロールを使用する場合でも、すべてのONTAPアクセスの決定は、基盤となる CLI コマンドに基づいて行われます。ただし、REST ロールの権限は REST API エンドポイントに基づいて定義されるため、 ONTAP は各 REST ロールに対してマップされた従来のロールを作成する必要があります。したがって、各 REST ロールは、基礎となる従来のロールにマッピングされます。これにより、 ONTAP はロールの種類に関係なく、一貫した方法でアクセス制御の決定を行うことができます。並列にマップされたロールを変更することはできません。
+
+.CLI権限を使用してRESTロールを定義する
+ONTAP は常に CLI コマンドを使用して基本レベルでのアクセスを決定するため、REST エンドポイントではなく CLI コマンド権限を使用して REST ロールを表現することができます。このアプローチの利点の 1 つは、従来のロールで利用できる追加の粒度です。
+
+.ONTAPロールを定義する際の管理インターフェース
+ONTAP CLI および REST API を使用してユーザーとロールを作成できます。ただし、 ONTAPツール マネージャーから利用できる JSON ファイルとともに System Manager インターフェイスを使用する方が便利です。見るlink:../concepts/rbac-ontap-use.html["ONTAP tools for VMware vSphereでONTAP RBAC を使用する"]詳細についてはこちらをご覧ください。

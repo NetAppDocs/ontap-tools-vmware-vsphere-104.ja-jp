@@ -1,0 +1,94 @@
+---
+permalink: concepts/rbac-vcenter-use.html 
+sidebar: sidebar 
+keywords: vcenter, vcenter server, vcenter server rbac, use rbac 
+summary: vCenter Server を使用したONTAP tools for VMware vSphereには、実稼働環境で使用する前に考慮すべきいくつかの側面があります。 
+---
+= ONTAP tools for VMware vSphereで vCenter Server RBAC を使用する
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter Server を使用したONTAP tools for VMware vSphereには、実稼働環境で使用する前に考慮すべきいくつかの側面があります。
+
+
+
+== vCenter のロールと管理者アカウント
+
+vSphere オブジェクトおよび関連する管理タスクへのアクセスを制限する場合にのみ、カスタム vCenter Server ロールを定義して使用する必要があります。アクセスを制限する必要がない場合は、代わりに管理者アカウントを使用できます。各管理者アカウントは、オブジェクト階層の最上位レベルで管理者ロールを使用して定義されます。これにより、 ONTAP tools for VMware vSphereによって追加されたオブジェクトを含む vSphere オブジェクトへのフル アクセスが提供されます。
+
+
+
+== vSphere オブジェクト階層
+
+vSphere オブジェクト インベントリは階層的に編成されます。たとえば、次のように階層を下に移動できます。
+
+`vCenter Server`--> `Datacenter` --> `Cluster` --> `ESXi host` --> `Virtual Machine`
+
+VAAI プラグイン操作を除くすべての権限は、vSphere オブジェクト階層で検証されます。VAAI プラグイン操作は、ターゲット ESXi ホストに対して検証されます。
+
+
+
+== ONTAP tools for VMware vSphereに含まれるロール
+
+vCenter Server RBAC での作業を簡素化するために、 ONTAP tools for VMware vSphereでは、さまざまな管理タスクに合わせて事前定義されたロールが提供されます。
+
+
+NOTE: 必要に応じて新しいカスタム ロールを作成できます。この場合、既存のONTAPツール ロールの 1 つを複製し、必要に応じて編集する必要があります。構成を変更した後、影響を受ける vSphere クライアント ユーザーは、変更を有効にするためにログアウトして再度ログインする必要があります。
+
+ONTAP tools for VMware vSphereを表示するには、vSphere Client の上部にある *メニュー* を選択し、左側の *管理* をクリックしてから *ロール* をクリックします。以下に説明する 3 つの定義済みロールがあります。
+
+.VMware vSphere 管理者向けNetApp ONTAP tools for VMware vSphere
+ONTAP tools for VMware vSphereを実行するために必要な、すべてのネイティブ vCenter Server 権限とONTAPツール固有の権限を提供します。
+
+.ONTAP tools for VMware vSphereNetApp ONTAP ツール（読み取り専用）
+ONTAP Toolsに対する読み取り専用アクセスが許可されます。これらのユーザーは、アクセス制御されているONTAP tools for VMware vSphereを実行できません。
+
+.VMware vSphere プロビジョニング用のNetApp ONTAP tools for VMware vSphere
+ストレージのプロビジョニングに必要なネイティブ vCenter Server 権限とONTAPツール固有の権限の一部を提供します。次のタスクを実行できます。
+
+* 新しいデータストアの作成
+* データストアの管理
+
+
+
+
+== vSphere オブジェクトとONTAPストレージ バックエンド
+
+2 つの RBAC 環境が連携して動作します。 vSphere クライアント インターフェイスでタスクを実行する場合、最初に vCenter Server に定義されているONTAPツール ロールがチェックされます。操作が vSphere によって許可されている場合は、 ONTAPロールの権限が検査されます。この 2 番目の手順は、ストレージ バックエンドが作成および構成されたときにユーザーに割り当てられたONTAPロールに基づいて実行されます。
+
+
+
+== vCenter Server RBAC の操作
+
+vCenter Server の権限とアクセス許可を操作する際に考慮すべき点がいくつかあります。
+
+
+
+=== 必要な権限
+
+ONTAP tools for VMware vSphereにアクセスするには、 ONTAPツール固有の _View_ 権限が必要です。この権限なしで vSphere にサインインしてNetAppアイコンをクリックすると、 ONTAP tools for VMware vSphereエラー メッセージが表示され、ユーザー インターフェイスにアクセスできなくなります。
+
+vSphere オブジェクト階層内の割り当てレベルによって、アクセスできるユーザー インターフェイスの部分が決まります。ルート オブジェクトに表示権限を割り当てると、 NetAppアイコンをクリックしてONTAP tools for VMware vSphereにアクセスできるようになります。
+
+代わりに、別の下位の vSphere オブジェクト レベルに表示権限を割り当てることもできます。ただし、これにより、アクセスして使用できるONTAP tools for VMware vSphereが制限されます。
+
+
+
+=== アクセス許可の割り当て
+
+vSphere オブジェクトおよびタスクへのアクセスを制限する場合は、vCenter Server 権限を使用する必要があります。  vSphere オブジェクト階層内で権限を割り当てる場所によって、ユーザーが実行できるONTAP tools for VMware vSphereが決まります。
+
+
+TIP: より制限的なアクセスを定義する必要がない限り、通常はルート オブジェクトまたはルート フォルダー レベルで権限を割り当てることをお勧めします。
+
+ONTAP tools for VMware vSphereで使用できる権限は、ストレージ システムなどの vSphere 以外のカスタム オブジェクトに適用されます。割り当てることができる vSphere オブジェクトがないため、可能であれば、これらの権限をONTAP tools for VMware vSphereに割り当てる必要があります。たとえば、 ONTAP tools for VMware vSphereの「ストレージ システムの追加/変更/削除」権限を含むすべての権限は、ルート オブジェクト レベルで割り当てる必要があります。
+
+オブジェクト階層の上位レベルで権限を定義する場合、その権限が子オブジェクトに渡され継承されるように構成できます。必要に応じて、親から継承した権限を上書きする追加の権限を子オブジェクトに割り当てることができます。
+
+権限はいつでも変更できます。権限内のいずれかの権限を変更する場合、その権限に関連付けられているユーザーは vSphere からログアウトし、再度ログインして変更を有効にする必要があります。

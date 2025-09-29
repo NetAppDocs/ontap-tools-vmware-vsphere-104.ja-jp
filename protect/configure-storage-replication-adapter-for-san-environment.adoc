@@ -1,0 +1,70 @@
+---
+permalink: protect/configure-storage-replication-adapter-for-san-environment.html 
+sidebar: sidebar 
+keywords:  
+summary: 'VMware Live Site Recovery のストレージ レプリケーション アダプタ (SRA) を実行する前に、ストレージ システムをセットアップする必要があります。' 
+---
+= SANおよびNAS環境向けにSRAを構成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware Live Site Recovery のストレージ レプリケーション アダプタ (SRA) を実行する前に、ストレージ システムをセットアップする必要があります。
+
+
+
+== SAN環境向けにSRAを構成する
+
+.開始する前に
+保護されたサイトと回復サイトに次のプログラムがインストールされている必要があります。
+
+* VMware ライブサイトリカバリ
++
+VMware Live Site Recovery のインストールに関するドキュメントは、VMware サイトにあります。
+
++
+https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["VMware Live Site Recoveryについて"]
+
+* SRA
++
+アダプタは VMware Live Site Recovery にインストールされます。
+
+
+
+.手順
+. 保護対象サイトで、プライマリESXiホストがプライマリ ストレージ システムのLUNに接続されていることを確認します。
+. LUNが次のigroupにあることを確認します。 `ostype`プライマリ ストレージ システムでオプションが _VMware_ に設定されています。
+. リカバリ サイトの ESXi ホストがストレージ仮想マシン (SVM) に適切に iSCSI 接続できることを確認します。セカンダリ サイトの ESXi ホストはセカンダリ サイトのストレージにアクセスできる必要があり、プライマリ サイトの ESXi ホストはプライマリ サイトのストレージにアクセスできる必要があります。
++
+これは、ESXiホストにSVMに接続されたローカルLUNがあることを確認するか、 `iscsi show initiators` SVM に対するコマンド。  ESXi ホスト内のマップされた LUN の LUN アクセスをチェックして、iSCSI 接続を確認します。
+
+
+
+
+
+== NAS環境向けにSRAを構成する
+
+.開始する前に
+保護されたサイトと回復サイトに次のプログラムがインストールされている必要があります。
+
+* VMware ライブサイトリカバリ
++
+VMware Live Site Recovery のインストールに関するドキュメントは、VMware サイトにあります。
+
++
+https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/about-vmware-live-site-recovery-installation-and-configuration.html["VMware Live Site Recoveryについて"]
+
+* SRA
++
+アダプタは、VMware Live Site Recovery および SRA サーバーにインストールされます。
+
+
+
+.手順
+. 保護対象サイトのデータストアに、vCenter Serverに登録された仮想マシンがあることを確認します。
+. 保護されたサイトの ESXi ホストがストレージ仮想マシン (SVM) から NFS エクスポート ボリュームをマウントしていることを確認します。
+. アレイマネージャウィザードを使用してVMware Live Site Recoveryにアレイを追加する際は、*NFSアドレス*フィールドにNFSエクスポートが存在するIPアドレスやFQDNなどの有効なアドレスが指定されていることを確認してください。*NFSアドレス*フィールドにはNFSホスト名を使用しないでください。
+. 使用 `ping`リカバリ サイトの各 ESXi ホストでコマンドを実行して、SVM からの NFS エクスポートを提供するために使用される IP アドレスにアクセスできる VMkernel ポートがホストにあることを確認します。
+

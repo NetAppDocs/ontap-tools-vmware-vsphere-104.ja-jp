@@ -1,0 +1,31 @@
+---
+permalink: release-notes/whats-new.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 10.4, ONTAP tools for VMware vSphere' 
+summary: ONTAP tools for VMware vSphereで利用できる新しい機能について説明します。 
+---
+= ONTAP tools for VMware vSphereの新機能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereで利用できる新しい機能について説明します。
+
+[cols="30%,70%"]
+|===
+| 更新 | 説明 
+
+
+| link:../configure/create-datastore.html["クラスタあたり12ノードのASA r2システムのサポート"] | ONTAP tools for VMware vSphereは、クラスタあたり最大 12 ノードのASA r2 ストレージ システムのワークフローをサポートし、データ管理の効率とスケーラビリティを向上させます。  iSCSI および FC プロトコルを使用したvVolsデータストア、および iSCSI、FC、NVMe プロトコルを使用した VMFS データストアをサポートし、柔軟で強化されたストレージ オプションを提供します。 
+
+
+| link:../manage/add-ntpserver.html["ONTAPツールマネージャのユーザーインターフェースの強化"] | NTP サーバーを有効にして環境全体で正確な時刻同期を実現し、テレメトリ設定を構成してONTAPツール マネージャー インターフェイスからシステム パフォーマンスを監視および分析できるようになりました。これらの設定はメンテナンス コンソールでは利用できなくなりました。 
+
+
+| 強化されたセキュリティ機能 | セキュリティ機能により、保護が強化され、業界標準に準拠できるようになり、管理者が VMware 環境をより効果的に管理できるように、強力でユーザーフレンドリーなエクスペリエンスが提供されます。 
+
+
+| link:../protect/enable-storage-replication-adapter.html["強化されたSRA災害復旧機能"] | ONTAP tools for VMware vSphereでは、 SnapMirror のスケジュールされたスナップショット コピーに加えて、カスタム名のスナップショットを備えた Site Recovery Appliance (SRA) を使用した災害復旧操作がサポートされるようになりました。 
+|===

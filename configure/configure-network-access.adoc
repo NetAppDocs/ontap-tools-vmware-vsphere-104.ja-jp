@@ -1,0 +1,24 @@
+---
+permalink: configure/configure-network-access.html 
+sidebar: sidebar 
+keywords: network access configuration, export policy, mount operation, ESXi hosts 
+summary: ネットワーク アクセスを構成していない場合は、ESXi ホストから検出されたすべての IP アドレスがデフォルトでエクスポート ポリシーに追加されます。 
+---
+= ネットワークアクセスを構成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ネットワーク アクセスを構成していない場合は、ESXi ホストから検出されたすべての IP アドレスがデフォルトでエクスポート ポリシーに追加されます。特定の IP アドレスをいくつかエクスポート ポリシーに追加し、残りを除外するように構成できます。ただし、除外された ESXi ホストでマウント操作を実行すると、操作は失敗します。
+
+.手順
+. vSphere クライアントにログインします。
+. プラグイン セクションのショートカット ページで * NetApp ONTAPツール* を選択します。
+. ONTAPツールの左側のペインで、*設定* > *ネットワーク アクセスの管理* > *編集* に移動します。
++
+複数の IP アドレスを追加するには、リストをコンマ、範囲、クラスレス ドメイン間ルーティング (CIDR)、またはこれら 3 つすべての組み合わせで区切ります。
+
+. *保存*を選択します。
+

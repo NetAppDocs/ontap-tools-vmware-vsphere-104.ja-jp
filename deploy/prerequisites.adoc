@@ -1,0 +1,232 @@
+---
+permalink: deploy/prerequisites.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: ONTAP Tools for VMware vSphereを導入する前に、導入パッケージのスペース要件とホスト システムのいくつかの基本的な要件について理解しておく必要があります。 
+---
+= ONTAP tools for VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP Tools for VMware vSphereを導入する前に、導入パッケージのスペース要件とホスト システムのいくつかの基本的な要件について理解しておく必要があります。
+
+VMware vCenter Server Virtual Appliance (vCSA) では、ONTAP tools for VMware vSphereを使用できます。  ESXi システムを含むサポートされている vSphere クライアントに、 ONTAP tools for VMware vSphereを展開する必要があります。
+
+
+
+== システム要件
+
+* *ノードあたりのインストール パッケージのスペース要件*
++
+** 15GB - シンプロビジョニングの場合
+** 348GB - シックプロビジョニングの場合
+
+
+* *ホスト システムのサイズ要件* 展開のサイズに応じて推奨されるメモリは以下の表のとおりです。高可用性 (HA) を展開するには、表に指定されているアプライアンス サイズの 3 倍が必要になります。
+
+
+|===
+
+
+| *展開の種類* | *ノードあたりのCPU数* | *ノードあたりのメモリ（GB）* | *ノードあたりのシックプロビジョニングされたディスク容量（GB）* 
+
+
+| 小規模 | 9 | 18 | 350 
+
+
+| 中 | 13 | 26 | 350 
+
+
+| 大規模注: 大規模展開は HA 構成専用です。 | 17 | 34 | 350 
+|===
+
+NOTE: バックアップを有効にすると、各ONTAPツール クラスターには、VM が展開されるデータストア上にさらに 50 GB のスペースが必要になります。したがって、非 HA では 400 GB、HA では合計 1100 GB のスペースが必要になります。
+
+
+
+== 最低限のストレージとアプリケーションの要件
+
+|===
+| ストレージ、ホスト、およびアプリケーション | バージョン要件 
+
+
+| ONTAP | 9.14.1、9.15.1、9.16.0、9.16.1、および 9.16.1P3 FAS、 ASA A シリーズ、 ASA C シリーズ、 AFF A シリーズ、 AFF C シリーズ、およびASA r2。 
+
+
+| ONTAPツールがサポートするESXiホスト | 7.0.3以降 
+
+
+| ONTAPツールはvCenter Serverでサポートされています | 7.0U3以降 
+
+
+| VASA Provider | 3.0 
+
+
+| OVAアプリケーション | 10.4 
+
+
+| ONTAPツール仮想マシンを展開するためのESXiホスト | 7.0U3と8.0U3 
+
+
+| ONTAPツール仮想マシンを展開するためのvCenter Server | 7.0と8.0 
+|===
+
+NOTE: ONTAP tools for VMware vSphere以降、仮想マシンのハードウェアがバージョン 10 から 17 に変更されます。
+
+相互運用性マトリックス ツール (IMT) には、サポートされているONTAP、vCenter Server、ESXi ホスト、およびプラグイン アプリケーションのバージョンに関する最新情報が含まれています。
+
+https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src=IMT["Interoperability Matrix Tool"^]
+
+
+
+== ポート要件
+
+以下の表は、 NetAppが使用するネットワーク ポートとその用途の概要を示しています。システム内で適切な動作と通信を行うために、これらのポートが開いていてアクセス可能であることを確認してください。関連サービスが正しく機能するために、これらのポートのトラフィックを許可するために必要なネットワーク構成が整っていることを確認してください。セキュリティ ポリシーによっては、ネットワーク内でこれらのトラフィックを許可するようにファイアウォールやその他のセキュリティ アプライアンスを設定する必要がある場合があります。
+
+|===
+
+
+| *ポート* | *プロトコル* | *説明* 
+
+
+| 8143 | TCP | ONTAPツールの HTTP/HTTPS 接続。 
+
+
+| 8043 | TCP | ONTAPツールの HTTP/HTTPS 接続。 
+
+
+| 9060 | TCP | ONTAPツールの HTTP/HTTPS 接続。 
+
+
+| 22 | TCP | Ansible は、クラスターのプロビジョニング中に通信にこの SSH ポートを使用します。このポートは、メンテナンス ユーザーのパスワードやステータス メッセージの変更、HA 構成の場合の 3 つのノードすべての値の更新などの機能に必要です。 
+
+
+| 443 | TCP | これは、VASA プロバイダー サービスの着信通信用のパススルー ポートです。  VASA プロバイダーの自己署名証明書とカスタム CA 証明書はこのポートでホストされます。 
+
+
+| 8443 | TCP | このポートは、Swagger および Manager ユーザー インターフェイス アプリケーションを通じて API ドキュメントをホストします。 
+
+
+| 2379 | TCP | これは、etcd キー値ストア内のキーの取得、配置、削除、監視などのクライアント要求のデフォルト ポートです。 
+
+
+| 2380 | TCP | これは、etcd がデータの複製と一貫性のために依存している raft コンセンサス アルゴリズムに使用される etcd クラスターのサーバー間通信のデフォルト ポートです。 
+
+
+| 7472 | TCP/UDP | これは Prometheus メトリック サービス ポートです。 
+
+
+| 7946 | TCP/UDP | このポートは、Docker のコンテナ ネットワーク検出に使用されます。 
+
+
+| 9083 | TCP | このポートは、VASA プロバイダ サービスの内部で使用されるサービス ポートです。 
+
+
+| 1162 | UDP | これは SNMP トラップ パケット ポートです。 
+
+
+| 6443 | TCP | ソース: RKE2 エージェント ノード。宛先: REK2 サーバー ノード。説明: Kubernetes API 
+
+
+| 9345 | TCP | ソース: RKE2 エージェント ノード。宛先: REK2 サーバー ノード。説明: REK2 スーパーバイザー API 
+
+
+| 8472 | TCP+UDP | フランネル VXLAN を使用する場合、すべてのノードが UDP ポート 8472 を介して他のノードにアクセスできる必要があります。ソース: すべての RKE2 ノード。宛先: すべての REK2 ノード。説明: VXLAN を使用した Canal CNI 
+
+
+| 10250 | TCP | ソース: すべての RKE2 ノード。宛先: すべての REK2 ノード。説明: Kubelet メトリクス 
+
+
+| 30000-32767 | TCP | ソース: すべての RKE2 ノード。宛先: すべての REK2 ノード。説明: NodePort ポート範囲 
+
+
+| 123 | TCP | Ntpd はこのポートを使用して NTP サーバーの検証を実行します。 
+
+
+| 137-139 | TCP/UDP | SMB/Windows 共有パケット。 
+
+
+| 6789 | TCP | Ceph モニター (MON) 
+
+
+| 3300 | TCP | Ceph モニター (MON) 
+
+
+| 6800-7300 | TCP | Ceph マネージャー、OSD、およびファイルシステム (MDS)。 
+
+
+| 80 | TCP | Ceph RADOS ゲートウェイ (RGW) 
+
+
+| 9080 | TCP | VP HTTP/HTTPS 接続 (IPv4 の場合は 127.0.0.0/8、IPv6 の場合は ::1/128 からのみ)。 
+|===
+
+
+== ONTAP tools for VMware vSphereを導入するための構成制限
+
+次の表をガイドとして使用して、 ONTAP tools for VMware vSphereを構成することができます。
+
+|===
+
+
+| *展開* | *タイプ* | * vVolsの数* | *ホスト数* 
+
+
+| HA 認定外 | 小（S） | 約12K | 32 
+
+
+| HA 認定外 | ミディアム（M） | 約24K | 64 
+
+
+| 高可用性 | 小（S） | 約24K | 64 
+
+
+| 高可用性 | ミディアム（M） | 約5万 | 128 
+
+
+| 高可用性 | ラージ（L） | 約10万 | 256 [注意] 表内のホストの数は、複数の vCenter からのホストの合計数を示しています。 
+|===
+
+
+== ONTAP tools for VMware vSphere- ストレージ レプリケーション アダプタ (SRA)
+
+次の表は、ONTAP tools for VMware vSphereを使用して VMware Live Site Recovery インスタンスごとにサポートされる数を示しています。
+
+|===
+| *vCenter 展開サイズ* | *小さい* | *中くらい* 
+
+
+| アレイベースのレプリケーションを使用して保護するように構成された仮想マシンの合計数 | 2000 | 5000 
+
+
+| アレイベースのレプリケーション保護グループの合計数 | 250 | 250 
+
+
+| 復旧計画ごとの保護グループの合計数 | 50 | 50 
+
+
+| 複製されたデータストアの数 | 255 | 255 
+
+
+| VM 数 | 4000 | 7000 
+|===
+次の表は、ONTAP tools for VMware vSphereを示しています。
+
+|===
+
+
+| *VMware Live Site Recoveryインスタンスの数* | * ONTAPツールの導入サイズ* 
+
+
+| 最大4 | 小規模 
+
+
+| 4～8 | 中 
+
+
+| 8以上 | 大規模 
+|===
+ https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html["VMware Live Site Recovery の運用上の制限"] 。

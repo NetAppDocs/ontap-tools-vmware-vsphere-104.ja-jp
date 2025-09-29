@@ -1,0 +1,98 @@
+---
+permalink: deploy/quick-start.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: このクイック スタート セクションで、 ONTAP tools for VMware vSphereをセットアップします。 
+---
+= ONTAP tools for VMware vSphereのクイック スタート
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このクイック スタート セクションで、 ONTAP tools for VMware vSphereをセットアップします。
+
+最初に、NFS および VMFS データストアをサポートするコア サービスを提供する小規模な単一ノード構成として、 ONTAP tools for VMware vSphereを展開します。vVolsデータストアと高可用性 (HA) を使用するために構成を拡張する必要がある場合は、このワークフローを完了した後に拡張します。詳細については、 link:../deploy/ha-workflow.html["HA 導入ワークフロー"] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1"]展開を計画する
+[role="quick-margin-para"]
+vSphere、 ONTAP、ESXiホストのバージョンがONTAPツールのバージョンと互換性があることを確認してください。十分なCPU、メモリ、ディスク容量を割り当ててください。セキュリティルールによっては、ネットワークトラフィックを許可するためにファイアウォールなどのセキュリティツールを設定する必要がある場合があります。
+
+[role="quick-margin-para"]
+vCenter Server がインストールされ、アクセス可能であることを確認します。
+
+[role="quick-margin-list"]
+* https://imt.netapp.com/matrix/#welcome["Interoperability Matrix Tool"]
+* link:../deploy/prerequisites.html["ONTAP tools for VMware vSphere"]
+* link:../deploy/pre-deploy-checks.html["始める前に"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2"]ONTAP tools for VMware vSphereを導入する
+[role="quick-margin-para"]
+まず、 ONTAP tools for VMware vSphereを、 NFS および VMFS データストアをサポートするコアサービスを提供する小規模なシングルノード構成として導入します。vVolsデータvVolsと高可用性（HA）を使用するように構成を拡張する予定がある場合は、このワークフローを完了した後に拡張してください。HA構成に拡張するには、CPU ホットアドとメモリ ホットプラグが有効になっていることを確認してください。
+
+[role="quick-margin-list"]
+* link:../deploy/ontap-tools-deployment.html["ONTAP tools for VMware vSphereを導入する"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三つ"]vCenter Serverインスタンスを追加する
+[role="quick-margin-para"]
+ONTAP tools for VMware vSphereに vCenter Server インスタンスを追加して、vCenter Server 環境内の仮想データストアを構成、管理、保護します。
+
+[role="quick-margin-list"]
+* link:../configure/add-vcenter.html["vCenter Serverインスタンスを追加する"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4"]ONTAPユーザーの役割と権限を構成する
+[role="quick-margin-para"]
+ONTAP tools for VMware vSphereに付属の JSON ファイルを使用して、ストレージ バックエンドを管理するための新しいユーザー ロールと権限を構成します。
+
+[role="quick-margin-list"]
+* link:../configure/configure-user-role-and-privileges.html["ONTAPユーザーの役割と権限を構成する"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]ストレージバックエンドを構成する
+[role="quick-margin-para"]
+ONTAPクラスターにストレージ バックエンドを追加します。 vCenter が関連付けられた SVM を持つテナントとして機能するマルチテナント設定の場合は、 ONTAPツール マネージャを使用してクラスタを追加します。ストレージ バックエンドを vCenter Server に関連付けて、オンボードされた vCenter Server インスタンスにグローバルにマップします。
+
+[role="quick-margin-para"]
+ONTAPツールのユーザー インターフェイスを使用して、クラスタまたは SVM 認証情報を持つローカル ストレージ バックエンドを追加します。これらのストレージ バックエンドは、単一の vCenter に制限されます。クラスタ認証情報をローカルで使用する場合、関連付けられた SVM は自動的に vCenter にマッピングされ、 vVolsまたは VMFS を管理します。  SRA を含む VMFS 管理の場合、 ONTAPツールはグローバル クラスタを必要とせずに SVM 認証情報をサポートします。
+
+[role="quick-margin-list"]
+* link:../configure/add-storage-backend.html["ストレージバックエンドを追加する"]
+* link:../configure/associate-storage-backend.html["ストレージバックエンドをvCenter Serverインスタンスに関連付ける"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"]複数の vCenter Server インスタンスを使用している場合は証明書をアップグレードします
+[role="quick-margin-para"]
+複数の vCenter Server インスタンスで作業する場合は、自己署名証明書を証明機関 (CA) 署名証明書にアップグレードします。
+
+[role="quick-margin-list"]
+* link:../manage/certificate-manage.html["証明書の管理"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["セブン"] （オプション）SRA保護を構成する
+[role="quick-margin-para"]
+SRA 機能を有効にして災害復旧を構成し、NFS または VMFS データストアを保護します。
+
+[role="quick-margin-list"]
+* link:../manage/enable-services.html["ONTAP tools for VMware vSphereを有効にする"]
+* link:../protect/configure-on-srm-appliance.html["VMware Live Site RecoveryアプライアンスでSRAを構成する"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["八"]（オプション） SnapMirrorアクティブ同期保護を有効にする
+[role="quick-margin-para"]
+SnapMirrorアクティブ同期のホスト クラスタ保護を管理するには、 ONTAP tools for VMware vSphereを構成します。 SnapMirrorアクティブ同期を使用するには、 ONTAPシステムでONTAPクラスタと SVM ピアリングを実行します。これは VMFS データストアにのみ適用されます。
+
+[role="quick-margin-list"]
+* link:../configure/protect-cluster.html["ホストクラスタ保護を使用して保護する"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-9.png["九"]ONTAP tools for VMware vSphereのバックアップとリカバリを設定する
+[role="quick-margin-para"]
+障害発生時にセットアップを回復するために使用できる、 ONTAP tools for VMware vSphereのバックアップをスケジュールします。
+
+[role="quick-margin-list"]
+* link:../manage/enable-backup.html["ONTAPツールのセットアップのバックアップを作成し、復元する"]
+
