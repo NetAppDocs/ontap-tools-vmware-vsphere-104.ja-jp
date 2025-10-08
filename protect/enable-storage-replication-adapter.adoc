@@ -27,3 +27,6 @@ ONTAP tools for VMware vSphereには、 SRA 機能を有効にして災害復旧
 . SRA プラグインの _.tar.gz_ インストーラーを VMware Live Site Recovery にアップロードします。
 . アダプタを再スキャンして、VMware Live Site Recovery のストレージ レプリケーション アダプタ ページで詳細が更新されていることを確認します。
 
+
+.関連情報
+https://docs.netapp.com/us-en/netapp-solutions-virtualization/vmware/vmw-nfs-vlsr.html#scenario-overview["VMware Site Recovery Manager を使用して NFS データストアの災害復旧を構成する"]
