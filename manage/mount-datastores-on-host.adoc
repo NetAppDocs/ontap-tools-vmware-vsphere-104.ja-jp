@@ -13,6 +13,9 @@ summary: 追加のホストにデータストアをマウントすると、そ�
 [role="lead"]
 追加のホストにデータストアをマウントすると、そのホストからストレージにアクセスできるようになります。ホストをVMware環境に追加したあとで、そのホストにデータストアをマウントできます。
 
+
+NOTE: 新しいESXiホストを追加する場合、 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/use-quickstart-to-add---host-to-a-cluster.html["vSphere クラスタに ESX ホストを追加するワークフロー"]スケジュールされたホスト検出が完了するまで待機してから、 ONTAPツールに表示されます。あるいは、 NetApp ONTAPツールの概要画面から手動で検出を実行することもできます。
+
 .タスク概要
 * vSphere クライアントのバージョンと選択したデータストアのタイプによっては、一部の右クリック アクションが無効になったり使用できなくなったりします。
 +
@@ -32,3 +35,6 @@ summary: 追加のホストにデータストアをマウントすると、そ�
 
 .次の手順
 最近のタスク パネルで進行状況を追跡できます。
+
+.関連トピック
+link:../manage/add-vsphere-host.html["新しい VMware vSphere ホストを追加する"]

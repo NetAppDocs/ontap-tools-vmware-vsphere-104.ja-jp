@@ -1,0 +1,27 @@
+---
+permalink: manage/add-vsphere-host.html 
+sidebar: sidebar 
+keywords:  
+summary: 新しい VMware vSphere ホストをONTAP tools for VMware vSphereに追加します。 
+---
+= 新しい VMware vSphere ホストを追加する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphereに新しい VMware vSphere ホストを追加して、ホスト上のデータストアを管理および保護します。
+
+.手順
+. 次のページのワークフローに従って、VMware vSphere クラスターにホストを追加します。 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/use-quickstart-to-add---host-to-a-cluster.html["クイックスタート ワークフローを使用して vSphere クラスタに ESX ホストを追加する方法"]
+. ホストを追加したら、 ONTAPツールのメイン メニューに移動し、概要パネルで *Discover* を選択します。検出プロセスが完了するまで待ちます。あるいは、スケジュールされたホスト検出が完了するまで待つこともできます。
+
+
+.結果
+新しいホストは、 ONTAP tools for VMware vSphereによって検出され、管理されるようになりました。新しいホスト上のデータストアの管理に進むことができます。
+
+.関連トピック
+* link:../manage/mount-a-vvols-datastore.html["vVolデータストアのマウント"]新しいホストで。
+* link:../manage/mount-datastores-on-host.html["NFSおよびVMFSデータストアをマウントする"]新しいホストで。
+

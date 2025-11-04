@@ -13,6 +13,9 @@ summary: '「vVolsデータストアのマウント」ダイアログ ボック�
 [role="lead"]
 VMware Virtual Volumes (vVols) データストアを 1 つ以上の追加ホストにマウントして、追加ホストへのストレージ アクセスを提供できます。  vVolsデータストアのマウント解除は API 経由でのみ行えます。
 
+
+NOTE: 新しいESXiホストを追加する場合、 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/use-quickstart-to-add---host-to-a-cluster.html["vSphere クラスタに ESX ホストを追加するワークフロー"]スケジュールされたホスト検出が完了するまで待機してから、 ONTAPツールに表示されます。あるいは、 NetApp ONTAPツールの概要画面から手動で検出を実行することもできます。
+
 .手順
 . vSphere Client のホームページから、[ホストとクラスタ] を選択します。
 . ナビゲーション ペインで、データストアが含まれているデータ センターを選択します。
@@ -21,3 +24,6 @@ VMware Virtual Volumes (vVols) データストアを 1 つ以上の追加ホス�
 
 
 最近のタスク パネルで進行状況を追跡できます。
+
+.関連トピック
+link:../manage/add-vsphere-host.html["新しい VMware vSphere ホストを追加する"]
