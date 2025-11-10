@@ -1775,14 +1775,8 @@
   <block id="9f147a250dd9a5cd9d9745eb3f5f7668" category="paragraph">ネットワーク アクセス制御やセキュリティ対策にプロキシ サーバーが使用されるシナリオでAutoSupport機能が適切に機能するように、 AutoSupportプロキシ URL を更新します。これにより、 AutoSupportデータを適切なプロキシ経由でルーティングできるようになり、安全な転送とコンプライアンスが実現します。</block>
   <block id="d49d8a5effc0a522fa72d0ff457066df" category="list-text">有効な*プロキシ URL* を入力し、変更を保存します。</block>
   <block id="eb587ff6958c1e65b721306af8fa8e3b" category="paragraph">AutoSupportを無効にすると、プロキシ URL も無効になります。</block>
-  <block id="a6f65a806180d1ff3c8d5e553e634e9d" category="summary">メンテナンス コンソールを使用して、vCenter Server およびONTAP の資格情報を更新できます。</block>
-  <block id="f72e000ebb4c7bedf651a46e595f1371" category="doc">vCenter ServerとONTAPの認証情報を更新する</block>
-  <block id="7ac19aa441feceb73519a5108d4cc366" category="paragraph">メンテナンス コンソールを使用して、vCenter Server インスタンスとONTAP認証情報を更新できます。</block>
   <block id="21a56b485fb6cd9f7c9cc8f514440950" category="paragraph">メンテナンス ユーザーのログイン資格情報が必要です。</block>
-  <block id="1f8bb3d639d4544a4979b060d7cccc88" category="paragraph">導入後に vCenter Server、 ONTAP、または Data LIF の資格情報を変更した場合は、この手順を使用して資格情報を更新する必要があります。</block>
   <block id="cea5a13834803a12adaeb249165351df" category="list-text">入力<block ref="c81e728d9d4c2f636f067f89cc14862c" prefix=" " category="inline-code"></block>システム構成メニューを選択します。</block>
-  <block id="86ce6e9c3af571980099ca308cd245e3" category="list-text">入力<block ref="45c48cce2e2d7fbdea1afc51c7c6ad26" prefix=" " category="inline-code"></block>ONTAP認証情報を変更します。</block>
-  <block id="207c00a73dde0270cc0fbc7ce9c5f2fd" category="list-text">入力<block ref="d3d9446802a44259755d38e6d163e820" prefix=" " category="inline-code"></block>vCenter の資格情報を変更します。</block>
   <block id="d3cd4bffc1abc46e60337f8438f457b9" category="summary">ストレージ ビューには、仮想マシンによって作成されたvVolsのリストが表示されます。</block>
   <block id="f6607063532d19e10b746de0f6108f15" category="doc">仮想マシンのストレージビュー</block>
   <block id="9d850336a156831a9095fd981a1a0c23" category="admonition">このビューは、 ONTAP tools for VMware vSphere管理対象vVolsデータストア関連ディスク用の ONTAP ツールが少なくとも 1 つマウントされている VM に適用されます。</block>
@@ -2284,7 +2278,6 @@
   <block id="cd457aeee08a9f6476660a1f15284160" category="paragraph">ハードディスクを追加した後、それぞれの構成に合わせて VM のリソースを更新し、プライマリ VM を再起動します。</block>
   <block id="82c4bde04ac809c6d15f232949e072ce" category="paragraph">新しいHDDが作成されます。動的ストレージ プロビジョナーは、この HDD を使用してボリュームを生成または複製します。</block>
   <block id="b06f0e274f6c746f0d30521b5c7f392e" category="list-text">ONTAP tools for VMware vSphereをコンテンツ ライブラリにアップロードします。</block>
-  <block id="dd5382558ec4a47dfbc203fb25698772" category="list-text">プライマリVMページで、*アクション* &gt; *設定の編集*を選択します。</block>
   <block id="ef9e53e40d78d57abe78283a3603eb4e" category="list-text">*CD/DVD ドライブ* フィールドの編集設定ウィンドウで、コンテンツ ライブラリの ISO ファイルを選択します。</block>
   <block id="54a029420d74c0dff69239155cf510b5" category="inline-image-macro">設定を編集する</block>
   <block id="2c2d3019834934bb25449edddc396321" category="list-text">ISO ファイルを選択し、[*OK*] を選択します。  *CD/DVD ドライブ* フィールドで接続されているチェックボックスを選択します。<block ref="af57a506b85774ef3a9f849e2b26e258" category="inline-image-macro-rx" type="image"></block></block>
@@ -2433,4 +2426,12 @@
   <block id="83c2a6ded9467f8048f9a53cabd2e783" category="paragraph-title">関連トピック</block>
   <block id="403e2c858b37daa43171ef37b71e6640" category="paragraph"><block ref="403e2c858b37daa43171ef37b71e6640" category="inline-link-macro-rx"></block></block>
   <block id="17e484c8a86cb4a7c9192fe5d0393445" category="list-text">*2* と入力して、システム構成メニューを選択します。</block>
+  <block id="f59d6f6c2fbe5659bab55bb335b17871" category="summary">メンテナンス コンソールを使用して vCenter Server の資格情報を更新できます。</block>
+  <block id="d546c3915b2e0bc231d2bd0456f2d736" category="doc">vCenter Server の資格情報を更新する</block>
+  <block id="6e73e8087488ddc10c72aeec0f27cc93" category="paragraph">メンテナンス コンソールを使用して、vCenter Server インスタンスの資格情報を更新できます。</block>
+  <block id="1f2db2b2d242479839579d1cc7f9d26e" category="paragraph">デプロイ後に vCenter Server の資格情報を変更した場合は、この手順を使用して資格情報を更新する必要があります。</block>
+  <block id="a38dbe6982c223d82e53b7d0feab69ce" category="list-text">入力<block ref="c9f0f895fb98ab9159f51fd0297e236d" prefix=" " category="inline-code"></block> vCenter の資格情報を変更します。</block>
+  <block id="a928a1b805644ea87a643f7f8d60a477" category="list-text">プライマリ VM ページで、[*アクション*] &gt; [*設定の編集*] を選択します。プライマリ VM 名を識別するには:</block>
+  <block id="75a86edd37c9b2122be450b28fa09149" category="list-text">任意のノードで診断シェルを有効にする</block>
+  <block id="e016d50ae26af4214e6a864c1c2c8db5" category="list-text">次のコマンドを実行します。<block ref="1ebe86b64a17c55ae52f4488cffae75f" prefix=" " category="inline-code"></block></block>
 </blocks>

@@ -103,7 +103,13 @@ MongoDB のバックアップを取得するには、次のコマンドを実行
 
 .手順
 . ONTAP tools for VMware vSphereをコンテンツ ライブラリにアップロードします。
-. プライマリVMページで、*アクション* > *設定の編集*を選択します。
+. プライマリ VM ページで、[*アクション*] > [*設定の編集*] を選択します。プライマリ VM 名を識別するには:
++
+.. 任意のノードで診断シェルを有効にする
+.. 次のコマンドを実行します。
+`grep sourceHost /opt/netapp/meta/ansible_vars.yaml`
+
+
 . *CD/DVD ドライブ* フィールドの編集設定ウィンドウで、コンテンツ ライブラリの ISO ファイルを選択します。
 . ISO ファイルを選択し、[*OK*] を選択します。  *CD/DVD ドライブ* フィールドで接続されているチェックボックスを選択します。image:../media/primaryvm-edit-settings.png["設定を編集する"]
 . vCenter Server から、 ONTAPツールへのコンソールを開きます。
