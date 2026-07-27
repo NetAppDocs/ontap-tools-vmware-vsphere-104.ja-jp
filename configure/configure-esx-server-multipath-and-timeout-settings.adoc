@@ -15,6 +15,7 @@ ESXi サーバーのマルチパスとタイムアウト設定を構成すると
 
 
 
+[[configure-esxi-server-multipath-and-timeout-settings]]
 == ESXi サーバーのマルチパスとタイムアウト設定を構成する
 
 ONTAP Tools for VMware vSphereは、NetAppストレージ システムに最適なESXiホストのマルチパス設定とHBAタイムアウト設定を確認して設定します。
@@ -40,6 +41,7 @@ NOTE: ESXi ホストを展開して現在の値を確認できます。
 
 
 
+[[set-esxi-host-values]]
 == ESXiホストの値を設定する
 
 ONTAP tools for VMware vSphereを使用して、ESXi ホスト上でタイムアウトやその他の値を設定することで、最高のパフォーマンスとフェイルオーバーの成功を確保できます。  ONTAP tools for VMware vSphereが設定する値は、 NetApp の内部テストに基づいています。
@@ -48,6 +50,7 @@ ONTAP tools for VMware vSphereを使用して、ESXi ホスト上でタイムア
 
 
 
+[[hbacna-adapter-settings]]
 === HBA / CNA アダプタ設定
 
 次のパラメータをデフォルト値に設定します。
@@ -60,6 +63,7 @@ ONTAP tools for VMware vSphereを使用して、ESXi ホスト上でタイムア
 
 
 
+[[mpio-settings]]
 === MPIO 設定
 
 MPIO 設定は、 NetAppストレージ システムの優先パスを定義します。利用可能なパスのうちどれが最適化されているか (相互接続ケーブルを通過する最適化されていないパスとは対照的) を決定し、優先パスをそれらのパスの 1 つに設定します。
@@ -71,6 +75,7 @@ NOTE: MPIO 設定は、NVMe、NVMe/FC、および NVMe/TCP プロトコルには
 
 
 
+[[nfs-settings]]
 === NFS設定
 
 |===

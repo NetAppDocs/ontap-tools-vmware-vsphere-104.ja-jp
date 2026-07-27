@@ -18,6 +18,7 @@ ONTAP tools for VMware vSphereは、仮想マシンのライフサイクル管�
 
 
 
+[[rest-web-services-foundation]]
 == 基盤としてのREST Webサービス
 
 REST (Representational State Transfer) は、Web サービス API の設計を含む分散 Web アプリケーションを作成するためのスタイルです。サーバーベースのリソースを公開し、その状態を管理するための一連のテクノロジを確立します。
@@ -45,6 +46,7 @@ ONTAP tools for VMware vSphereは、ほとんどの要求を同期的に実行�
 
 
 
+[[ontap-tools-manager-environment]]
 == ONTAPツールマネージャ環境
 
 ONTAPツール マネージャ環境には、考慮すべきいくつかの側面があります。

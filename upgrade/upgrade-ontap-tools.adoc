@@ -84,7 +84,7 @@ MongoDB のバックアップを取得するには、次のコマンドを実行
 *vCenter 内のONTAP tools for VMware vSphereのスナップショットを取得します (HA 展開の場合は 3 台の VM、非 HA 展開の場合は 1 台の VM)*
 
 * vSphere クライアント ユーザー インターフェイスで、VM を選択します。
-* スナップショットタブに移動し、*スナップショットを撮る*ボタンを選択します。 VM の静止スナップショットを取得します。参照 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/take-snapshots-of-a-virtual-machine.html["仮想マシンのスナップショットを作成する"^]詳細については。
+* 「スナップショット」タブに移動し、「スナップショットを撮る」ボタンを選択します。仮想マシンの静止状態のスナップショットを取得します。詳細については、 https://techdocs.broadcom.com/["Broadcom技術ドキュメント"^]を参照してください。
 
 
 アップグレードを実行する前に、プレフィックスが「generate-support-bundle-job」であるログ バンドルから完了したポッドを削除します。サポート バンドルの生成が進行中の場合は、完了するまで待ってからポッドを削除します。

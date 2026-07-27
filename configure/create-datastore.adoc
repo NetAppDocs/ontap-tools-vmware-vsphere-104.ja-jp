@@ -132,7 +132,7 @@ ONTAP SVMをFCプロトコル用に設定するには、 https://docs.netapp.com
 
 VMware vSphere 8.0でNVMe/FCプロトコルを使用する方法の詳細については、以下を参照してください。 https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAPを使用した ESXi 8.x 向け NVMe-oF ホスト構成"] 。
 
-VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については、以下を参照してください。 https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP NVMe/FC ホスト構成ガイド"]そして http://www.netapp.com/us/media/tr-4684.pdf["TR-4684"]。
+VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については、 https://docs.netapp.com/us-en/ontap-sanhost/nvme_esxi_8.html["ONTAP NVMe/FC ホスト構成ガイド"]および https://www.netapp.com/pdf.html?item=/media/10681-tr4684.pdf["TR-4684"]を参照してください。
 
 .手順
 . vSphere クライアントにログインします。

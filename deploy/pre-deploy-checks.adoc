@@ -48,10 +48,12 @@ summary: ONTAP Tools for VMware vSphereを導入する前に、導入パッケ�
 |===
 
 
+[[deployment-worksheet]]
 == 展開ワークシート
 
 
 
+[[for-single-node-deployment]]
 === 単一ノード展開の場合
 
 次のワークシートを使用して、 ONTAP tools for VMware vSphereに必要な情報を収集します。
@@ -100,6 +102,7 @@ NOTE: 上記のすべての IP アドレスの DNS レコードを作成しま�
 
 
 
+[[for-high-availability-ha-deployment]]
 === 高可用性（HA）展開の場合
 
 単一ノードの展開要件に加えて、HA 展開には次の情報が必要です。
@@ -132,12 +135,14 @@ NOTE: 上記のすべての IP アドレスの DNS レコードを作成しま�
 |===
 
 
+[[network-firewall-configuration]]
 == ネットワークファイアウォールの構成
 
 ネットワーク ファイアウォールで IP アドレスに必要なポートを開きます。 ONTAPツールはポート 443 を介してこの LIF にアクセスできる必要があります。参照link:../deploy/prerequisites.html["ポート要件"]最新情報については。
 
 
 
+[[ontap-storage-settings]]
 == ONTAPストレージ設定
 
 ONTAPストレージとONTAP tools for VMware vSphereとのシームレスな統合を確保するには、次の設定を考慮してください。

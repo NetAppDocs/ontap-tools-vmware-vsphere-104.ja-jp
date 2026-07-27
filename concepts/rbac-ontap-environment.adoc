@@ -18,6 +18,7 @@ ONTAP は、堅牢で拡張可能な RBAC 環境を提供します。  RBAC 機�
 
 
 
+[[overview-of-the-administrative-options]]
 == 管理オプションの概要
 
 ONTAP RBAC を使用する場合、環境と目的に応じていくつかのオプションが利用できます。主要な行政上の決定の概要は以下のとおりです。こちらもご覧ください https://docs.netapp.com/us-en/ontap-automation/rest/rbac_overview.html["ONTAP Automation: RBAC セキュリティの概要"^]詳細についてはこちらをご覧ください。
@@ -48,6 +49,7 @@ ONTAP は、クラスタ レベルと SVM レベルの両方で事前定義さ�
 
 
 
+[[working-with-ontap-rest-roles]]
 == ONTAP RESTロールの操作
 
 ONTAP tools for VMware vSphereに含まれているONTAP REST ロールを使用する場合は、いくつかの考慮事項があります。

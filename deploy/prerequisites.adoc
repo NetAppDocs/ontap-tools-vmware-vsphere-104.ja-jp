@@ -17,6 +17,7 @@ VMware vCenter Server Virtual Appliance (vCSA) では、ONTAP tools for VMware v
 
 
 
+[[system-requirements]]
 == システム要件
 
 * *ノードあたりのインストール パッケージのスペース要件*
@@ -47,6 +48,7 @@ NOTE: バックアップを有効にすると、各ONTAPツール クラスタ�
 
 
 
+[[minimum-storage-and-application-requirements]]
 == 最低限のストレージとアプリケーションの要件
 
 |===
@@ -82,6 +84,7 @@ https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src
 
 
 
+[[port-requirements]]
 == ポート要件
 
 以下の表は、 NetAppが使用するネットワーク ポートとその用途の概要を示しています。ポートには 3 つの種類があります。
@@ -154,6 +157,7 @@ NOTE: HA 展開の場合、すべてのノード間で UDP ポート 8472 が開
 
 
 
+[[configuration-limits-to-deploy-ontap-tools-for-vmware-vsphere]]
 == ONTAP tools for VMware vSphereを導入するための構成制限
 
 次の表をガイドとして使用して、 ONTAP tools for VMware vSphereを構成することができます。
@@ -180,6 +184,7 @@ NOTE: HA 展開の場合、すべてのノード間で UDP ポート 8472 が開
 |===
 
 
+[[ontap-tools-for-vmware-vsphere-storage-replication-adapter-sra]]
 == ONTAP tools for VMware vSphere- ストレージ レプリケーション アダプタ (SRA)
 
 次の表は、ONTAP tools for VMware vSphereを使用して VMware Live Site Recovery インスタンスごとにサポートされる数を示しています。

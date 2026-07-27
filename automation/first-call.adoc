@@ -18,6 +18,7 @@ curl を使用して API 呼び出しを発行し、ONTAP tools for VMware vSphe
 
 
 
+[[before-you-begin]]
 == 開始する前に
 
 curl の例で必要な情報とパラメータを確認する必要があります。
@@ -58,6 +59,7 @@ echo $FQDN_IP
 ----
 
 
+[[step-1-acquire-an-access-token]]
 == ステップ1: アクセストークンを取得する
 
 REST API を使用するには、アクセス トークンを取得する必要があります。アクセス トークンを要求する方法の例を以下に示します。ご使用の環境に応じて適切な値を代入する必要があります。
@@ -74,6 +76,7 @@ curl --request POST \
 
 
 
+[[step-2-issue-the-rest-api-call]]
 == ステップ2: REST API呼び出しを発行する
 
 アクセス トークンを取得したら、curl を使用して REST API 呼び出しを発行できます。最初のステップで取得したアクセス トークンを含めます。

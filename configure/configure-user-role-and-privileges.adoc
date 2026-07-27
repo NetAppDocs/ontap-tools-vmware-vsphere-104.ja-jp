@@ -50,6 +50,7 @@ NOTE: ユーザーは、クラスターで作成することも、ストレー�
 
 
 
+[[svm-aggregate-mapping-requirements]]
 == SVM集約マッピング要件
 
 データストアのプロビジョニングに SVM ユーザー認証情報を使用するために、 ONTAP tools for VMware vSphereは内部的に、データストア POST API で指定されたアグリゲート上にボリュームを作成します。 ONTAP、SVM ユーザー認証情報を使用して、SVM 上のマッピングされていないアグリゲート上にボリュームを作成することはできません。これを解決するには、ここで説明するように、 ONTAP REST API または CLI を使用して SVM をアグリゲートにマッピングする必要があります。
@@ -68,6 +69,7 @@ sti115_vsim_ucs630f_aggr1 vserver show-aggregates                               
 ----
 
 
+[[create-ontap-user-and-role-manually]]
 == ONTAPユーザーとロールを手動で作成する
 
 JSON ファイルを使用せずにユーザーとロールを手動で作成するには、このセクションの指示に従います。
@@ -103,6 +105,7 @@ JSON ファイルを使用せずにユーザーとロールを手動で作成す
 
 
 
+[[list-of-minimum-privileges-required-for-non-admin-global-scoped-cluster-user]]
 === 管理者以外のグローバル スコープのクラスタ ユーザーに必要な最小限の権限のリスト
 
 このセクションでは、ユーザーJSONファイルを使用せずに作成された、管理者以外のグローバルスコープのクラスタユーザーに必要な最小限の権限について説明します。クラスタをローカルスコープで追加する場合は、JSONファイルを使用してユーザーを作成することをお勧めします。これは、 ONTAP tools for VMware vSphereでは、 ONTAPでのプロビジョニングに読み取り権限以上の権限が必要になるためです。
@@ -152,6 +155,7 @@ APIの使用:
 |===
 
 
+[[create-ontap-tools-for-vmware-vsphere-ontap-api-based-cluster-scoped-user]]
 === VMware vSphere ONTAP API ベースのクラスタ スコープ ユーザーONTAP tools for VMware vSphereを作成する
 
 
@@ -269,6 +273,7 @@ security login rest-role create -role <role-name> -api /api/storage/availability
 ----
 
 
+[[create-ontap-tools-for-vmware-vsphere-ontap-api-based-svm-scoped-user]]
 === VMware vSphere ONTAP API ベースの SVM スコープ ユーザーONTAP tools for VMware vSphereを作成する
 
 すべての権限を持つ SVM スコープ ユーザーを作成するには、次のコマンドを実行します。
@@ -383,6 +388,7 @@ security login unlock -username testvpsraall -vserver C1_sti160-cluster
 ----
 
 
+[[upgrade-ontap-tools-for-vmware-vsphere-10-1-user-to-10-3-user]]
 == ONTAP tools for VMware vSphereを10.3 ユーザーにアップグレードする
 
 JSON ファイルを使用して作成されたクラスタ スコープのユーザーを持つONTAP tools for VMware vSphereの場合は、ユーザー管理者権限で次のONTAP CLI コマンドを使用して 10.3 リリースにアップグレードします。
@@ -460,6 +466,7 @@ vserver nvme subsystem modify
 ----
 
 
+[[upgrade-ontap-tools-for-vmware-vsphere-10-3-user-to-10-4-user]]
 == ONTAP tools for VMware vSphereを10.4 ユーザー向けにアップグレードする
 
 ONTAP 9.16.1 以降では、ONTAP tools for VMware vSphereを10.4 ユーザーにアップグレードします。

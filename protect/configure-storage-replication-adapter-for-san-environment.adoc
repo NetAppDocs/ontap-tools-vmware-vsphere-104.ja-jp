@@ -15,6 +15,7 @@ VMware Live Site Recovery のストレージ レプリケーション アダプ�
 
 
 
+[[configure-sra-for-san-environments]]
 == SAN環境向けにSRAを構成する
 
 .開始する前に
@@ -44,6 +45,7 @@ https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/
 
 
 
+[[configure-sra-for-nas-environments]]
 == NAS環境向けにSRAを構成する
 
 .開始する前に

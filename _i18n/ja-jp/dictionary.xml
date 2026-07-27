@@ -661,7 +661,6 @@
   <block id="5a380329b1b069f97190a31ae38b4637" category="paragraph">VMware vSphere 8.0でNVMe/FCプロトコルを使用する方法の詳細については、以下を参照してください。<block ref="9c081245622705d0f45a94665f8c99c0" category="inline-link-rx"></block> 。</block>
   <block id="636da39a2033c6179a718983c5ce1222" category="inline-link">ONTAP NVMe/FC ホスト構成ガイド</block>
   <block id="81ef6507a13da5635951bc5b533deb59" category="inline-link">TR-4684</block>
-  <block id="bcfcba3d84c95eb110df0649ab05c280" category="paragraph">VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については、以下を参照してください。<block ref="27816f9f9cf7e278691c8ea8c1dd01dc" category="inline-link-rx"></block>そして<block ref="a23d4cc1b9464bb497e26d387d612153" category="inline-link-rx"></block>。</block>
   <block id="bb9abdb0ecdc4e8ad5c61844a27d7f18" category="list-text">VMFS データストア タイプを選択します。</block>
   <block id="54823624f3ec81a67f0dafc81ea0fac9" category="list-text">*名前とプロトコル* ペインにデータストアの名前、サイズ、プロトコル情報を入力します。新しいデータストアを既存の VMFS データストア クラスタに追加する場合は、[詳細オプション] の下にあるデータストア クラスタ セレクタを選択します。</block>
   <block id="4ae15faab2ddb24edfab9e1f2a21a432" category="list-text">*ストレージ* ペインでストレージ VM を選択します。必要に応じて、[*詳細オプション*] セクションに *カスタム イニシエーター グループ名* を入力します。データストアに既存の igroup を選択するか、カスタム名で新しい igroup を作成することができます。</block>
@@ -1748,8 +1747,6 @@
   <block id="f54e212052df635bcc70d25302fd583e" category="paragraph">ONTAP tools for VMware vSphereをアンインストールすると、ツール内のすべてのデータが削除されます。</block>
   <block id="82a00fc1c0ae6d437f6d942c64bee898" category="list-text">ONTAP tools for VMware vSphereからすべての仮想マシンを削除または移動します。</block>
   <block id="4ad237c48098cfd8973e73475bded403" category="list-text">仮想マシンを削除するには、<block ref="c16fb322315174fa2c9720c74541cf45" category="inline-link-rx"></block></block>
-  <block id="59dd8a5d1e9605907341901d2760c087" category="inline-link">Storage vMotion を使用して仮想マシンを移行する方法</block>
-  <block id="0166be8b4848389c414e9e383efe9111" category="list-text">管理されていないデータストアに移動するには、<block ref="920cfb03e9def61d5164fb56cf050dd9" category="inline-link-rx"></block></block>
   <block id="f0833ce92c23eb056dde238669740988" category="list-text"><block ref="523efdef8100699453c6b07ce8f4921c" category="inline-link-macro-rx"></block>ONTAP tools for VMware vSphereで作成されました。</block>
   <block id="1d920979688b28c7b10ef84d14436f95" category="list-text">VASA プロバイダーを有効にしている場合は、 ONTAPツールで *設定* &gt; *VASA プロバイダー設定* &gt; *登録解除* を選択して、すべての vCenter サーバーから VASA プロバイダーを登録解除します。</block>
   <block id="02a713a12e2b216b65a52896d0728a0a" category="list-text">すべてのストレージ バックエンドを vCenter Server インスタンスから関連付け解除します。。 <block ref="8f766e539ddb39a7c07c0c84dded1670" category="inline-link-macro-rx"></block> 。</block>
@@ -2249,8 +2246,6 @@
   <block id="399a5cfe88876e091f96014da7798994" category="list-text">ONTAP System Manager ユーザー インターフェイスから、検索バーでボリュームを名前で検索し、名前を選択してそのボリュームを開きます。スナップショットに移動し、そのボリュームのスナップショットを追加します。</block>
   <block id="a780a238f22a802c24a2182aea27323f" category="paragraph">*vCenter 内のONTAP tools for VMware vSphereのスナップショットを取得します (HA 展開の場合は 3 台の VM、非 HA 展開の場合は 1 台の VM)*</block>
   <block id="c3710cf1c44da535612cf08236cee98f" category="list-text">vSphere クライアント ユーザー インターフェイスで、VM を選択します。</block>
-  <block id="a6d135b70268e6dae6e2414dc9c7e465" category="inline-link">仮想マシンのスナップショットを作成する</block>
-  <block id="ed05024ef185f71f630610fa2998b97c" category="list-text">スナップショットタブに移動し、*スナップショットを撮る*ボタンを選択します。 VM の静止スナップショットを取得します。参照<block ref="cfbcb02d8f4029fded9e80960c9fdffc" category="inline-link-rx"></block>詳細については。</block>
   <block id="07cf559ee7bbc8841180f1dd59c2917f" category="paragraph">アップグレードを実行する前に、プレフィックスが「generate-support-bundle-job」であるログ バンドルから完了したポッドを削除します。サポート バンドルの生成が進行中の場合は、完了するまで待ってからポッドを削除します。</block>
   <block id="7817c7412ad536f5c02bd959934f66d5" category="paragraph">どのようなタイプのアップグレードでも、100 GB のハード ディスク ドライブ (HDD) を追加する必要があります。  HDD を追加するには、次のタスクを実行します。</block>
   <block id="11873b433682caa870371cc1631ef90f" category="list-text">単一ノード構成の VM を選択するか、HA 構成の 3 つの VM すべてを選択します。</block>
@@ -2396,14 +2391,10 @@
   <block id="622ebf1679f52188783e45799f3b70cb" category="summary">新しい VMware vSphere ホストをONTAP tools for VMware vSphereに追加します。</block>
   <block id="5aa6adafd8167a23c389304a0d6e16cb" category="doc">新しい VMware vSphere ホストを追加する</block>
   <block id="a8626caa71cb3c13de333ded9fdfe5a8" category="paragraph">ONTAP tools for VMware vSphereに新しい VMware vSphere ホストを追加して、ホスト上のデータストアを管理および保護します。</block>
-  <block id="020968a073f2c7584ecd5aaec97f88b0" category="inline-link">クイックスタート ワークフローを使用して vSphere クラスタに ESX ホストを追加する方法</block>
-  <block id="0fdc03dfada440fcb45b31a6944bd23f" category="list-text">次のページのワークフローに従って、VMware vSphere クラスターにホストを追加します。<block ref="cf7664c28a8bbe5a872742d0c68a4d4b" category="inline-link-rx"></block></block>
   <block id="9764e14a69d1669b765a8ac58a35d864" category="list-text">ホストを追加したら、 ONTAPツールのメイン メニューに移動し、概要パネルで *Discover* を選択します。検出プロセスが完了するまで待ちます。あるいは、スケジュールされたホスト検出が完了するまで待つこともできます。</block>
   <block id="c81c266dd6001708c9f3076ddf21214c" category="paragraph">新しいホストは、 ONTAP tools for VMware vSphereによって検出され、管理されるようになりました。新しいホスト上のデータストアの管理に進むことができます。</block>
   <block id="11d81e4c78f6be23d5539c87f4f3a7a7" category="list-text"><block ref="c5978119f323c1ceb37571472aaae169" category="inline-link-macro-rx"></block>新しいホストで。</block>
   <block id="063680c82bcd7ffea25b1d4d5c3c6470" category="list-text"><block ref="b5251e50ffdcc6a83e84a63c2a1cd1e4" category="inline-link-macro-rx"></block>新しいホストで。</block>
-  <block id="77320a87e6ca763456023daeede0729f" category="inline-link">vSphere クラスタに ESX ホストを追加するワークフロー</block>
-  <block id="91d42183cd7455cc3f88c0c77b61174e" category="admonition">新しいESXiホストを追加する場合、<block ref="4954232b8967f3dbfaee01742ae35b89" category="inline-link-rx"></block>スケジュールされたホスト検出が完了するまで待機してから、 ONTAPツールに表示されます。あるいは、 NetApp ONTAPツールの概要画面から手動で検出を実行することもできます。</block>
   <block id="83c2a6ded9467f8048f9a53cabd2e783" category="paragraph-title">関連トピック</block>
   <block id="403e2c858b37daa43171ef37b71e6640" category="paragraph"><block ref="403e2c858b37daa43171ef37b71e6640" category="inline-link-macro-rx"></block></block>
   <block id="17e484c8a86cb4a7c9192fe5d0393445" category="list-text">*2* と入力して、システム構成メニューを選択します。</block>
@@ -2442,4 +2433,10 @@
   <block id="f6b1c86e1a3631a7b24c17cc093409bb" category="list-text">ストレージ VM ポリシーと対応する VM を選択します。</block>
   <block id="24347b3ddf5a25cc9c27e54ae285ade1" category="list-text">*適用*を選択します。</block>
   <block id="60bf6f2a83b056efb443713ab85c7cc9" category="paragraph">*VM ストレージ ポリシー コンプライアンス* のコンプライアンス ステータスは、準拠として表示されます。関連情報</block>
+  <block id="fa708df448b499a880141c721c544f14" category="paragraph">VMware vSphere 7.0でNVMe/FCを使用する方法の詳細については、<block ref="27816f9f9cf7e278691c8ea8c1dd01dc" category="inline-link-rx"></block>および<block ref="210fbfc4f91114a5e2edc5d409987e41" category="inline-link-rx"></block>を参照してください。</block>
+  <block id="ae0aa1a81eb18e69d5fc662eaee0efd5" category="inline-link">Broadcom技術ドキュメント</block>
+  <block id="563c4e1f66ab33a447a910bcffd17163" category="list-text">VMware vSphere クラスターにホストを追加するには、次のページに記載されているワークフローに従ってください：<block ref="94f03a61d7283013b50d8cc8e88c9fd8" category="inline-link-rx"></block>。</block>
+  <block id="0198d63c7755c98e755c41135f163c6e" category="admonition">新しい ESXi ホストを追加する場合は<block ref="94f03a61d7283013b50d8cc8e88c9fd8" category="inline-link-rx"></block>、スケジュールされたホスト検出が完了するまで待ってから ONTAP tools に表示されることを確認してください。または、NetApp ONTAP tools の概要画面から手動で検出を実行することもできます。</block>
+  <block id="ea979d9a9cddfcb001c2c7866c21bc62" category="list-text">それらを管理対象外のデータストアに移動するには、<block ref="94f03a61d7283013b50d8cc8e88c9fd8" category="inline-link-rx"></block>を参照してください。</block>
+  <block id="04b5525fb0dd70ed32ea9bb7a57dfaf6" category="list-text">「スナップショット」タブに移動し、「スナップショットを撮る」ボタンを選択します。仮想マシンの静止状態のスナップショットを取得します。詳細については、<block ref="94f03a61d7283013b50d8cc8e88c9fd8" category="inline-link-rx"></block>を参照してください。</block>
 </blocks>

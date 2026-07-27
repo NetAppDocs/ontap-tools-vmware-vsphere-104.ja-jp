@@ -15,6 +15,7 @@ summary: '大規模環境でストレージ レプリケーション アダプ�
 
 
 
+[[storage-provider-settings]]
 == ストレージ プロバイダの設定
 
 拡張環境の場合、VMware Live Site Recovery で次のタイムアウト値を設定する必要があります。
@@ -58,6 +59,7 @@ summary: '大規模環境でストレージ レプリケーション アダプ�
 
 
 
+[[storage-settings]]
 == ストレージ設定
 
 タイムアウトになったら、 `storage.commandTimeout`そして `storage.maxConcurrentCommandCnt`より高い価値へ。
